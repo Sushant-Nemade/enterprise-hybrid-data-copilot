@@ -2,10 +2,22 @@
 
 from __future__ import annotations
 
+import re
 from enum import StrEnum
 from typing import Any
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
+
+UNSAFE_INPUT_PATTERN = re.compile(
+    r"(?:<\s*script|javascript:|onerror\s*=|onload\s*=|[\x00-\x08\x0b\x0c\x0e-\x1f])",
+    re.IGNORECASE,
+)
+
+
+def _reject_unsafe_text(value: str, field_name: str) -> str:
+    if UNSAFE_INPUT_PATTERN.search(value):
+        raise ValueError(f"{field_name} contains disallowed script/HTML injection or ASCII control characters")
+    return value
 
 
 class ReadinessStatus(StrEnum):
@@ -187,6 +199,11 @@ class CopilotQueryRequest(BaseModel):
     create_hitl_workflow: bool = Field(default=False)
     auto_submit_for_approval: bool = Field(default=False)
 
+    @field_validator("question")
+    @classmethod
+    def _validate_safe_question(cls, value: str) -> str:
+        return _reject_unsafe_text(value, "question")
+
 
 class CopilotQueryResponse(BaseModel):
     """Complete decision-support response with freshness gate, SQL/RAG evidence, and numerical verification."""
@@ -261,6 +278,11 @@ class WorkflowCreateRequest(BaseModel):
     numerical_parity_rate: float = Field(default=1.0, ge=0.0, le=1.0)
     submit_immediately: bool = Field(default=True)
 
+    @field_validator("question", "draft_answer")
+    @classmethod
+    def _validate_safe_create_fields(cls, value: str) -> str:
+        return _reject_unsafe_text(value, "WorkflowCreateRequest field")
+
 
 class WorkflowTransitionRequest(BaseModel):
     """Transition a workflow from DRAFT -> PENDING_APPROVAL or PENDING_APPROVAL -> APPROVED / REJECTED."""
@@ -272,6 +294,11 @@ class WorkflowTransitionRequest(BaseModel):
     expected_evidence_sha256: str = Field(..., min_length=64, max_length=64, pattern=r"^[0-9a-f]{64}$")
     actor: str = Field(..., min_length=2, max_length=80)
     notes: str = Field(default="", max_length=500)
+
+    @field_validator("actor", "notes")
+    @classmethod
+    def _validate_safe_transition_fields(cls, value: str) -> str:
+        return _reject_unsafe_text(value, "WorkflowTransitionRequest field")
 
 
 class WorkflowVerifyDigestRequest(BaseModel):
