@@ -1,0 +1,2147 @@
+{
+  "readiness_default": {
+    "as_of_utc": "2026-10-27T12:00:00Z",
+    "overall_status": "warn_stale",
+    "can_execute_queries": true,
+    "database_sha256": "1d8879df130b7ab94612d60bceb587c5e3b8872dbb1661e1aee2e8ddfd2d00bc",
+    "tables": [
+      {
+        "table_name": "zone_operational_kpis",
+        "status": "ready",
+        "row_count": 4,
+        "latest_refresh_utc": "2026-10-27T09:00:00Z",
+        "staleness_hours": 3.0,
+        "max_null_ratio_observed": 0.0,
+        "null_ratios_by_column": {
+          "zone_id": 0.0,
+          "fiscal_quarter": 0.0,
+          "units_shipped": 0.0,
+          "sla_breach_count": 0.0,
+          "on_time_delivery_pct": 0.0,
+          "mean_repair_hours": 0.0,
+          "automation_coverage_pct": 0.0,
+          "refreshed_at_utc": 0.0
+        },
+        "missing_columns": [],
+        "schema_valid": true,
+        "table_sha256": "0f3ea05be6bb3cc52a28a495bc4fa4cdb9dbdc3a508035e50d663a19716f09ee",
+        "reasons": [
+          "Table zone_operational_kpis passed schema, row-count (4), null-ratio (0.000), and freshness (3.0h <= 24.0h) checks."
+        ]
+      },
+      {
+        "table_name": "zone_financial_kpis",
+        "status": "ready",
+        "row_count": 4,
+        "latest_refresh_utc": "2026-10-27T09:30:00Z",
+        "staleness_hours": 2.5,
+        "max_null_ratio_observed": 0.0,
+        "null_ratios_by_column": {
+          "zone_id": 0.0,
+          "fiscal_quarter": 0.0,
+          "revenue_eur": 0.0,
+          "opex_budget_eur": 0.0,
+          "actual_opex_eur": 0.0,
+          "opex_variance_pct": 0.0,
+          "gross_margin_pct": 0.0,
+          "cloud_ai_spend_eur": 0.0,
+          "refreshed_at_utc": 0.0
+        },
+        "missing_columns": [],
+        "schema_valid": true,
+        "table_sha256": "38a3820b0650737cff946649f2c15b7810a8129dccc2d926d4548c077e396fc2",
+        "reasons": [
+          "Table zone_financial_kpis passed schema, row-count (4), null-ratio (0.000), and freshness (2.5h <= 24.0h) checks."
+        ]
+      },
+      {
+        "table_name": "vendor_contract_sla_ledger",
+        "status": "ready",
+        "row_count": 5,
+        "latest_refresh_utc": "2026-10-27T08:00:00Z",
+        "staleness_hours": 4.0,
+        "max_null_ratio_observed": 0.0,
+        "null_ratios_by_column": {
+          "vendor_id": 0.0,
+          "vendor_name": 0.0,
+          "zone_id": 0.0,
+          "annual_contract_eur": 0.0,
+          "uptime_pct": 0.0,
+          "critical_incidents_q3": 0.0,
+          "penalty_rebate_eur": 0.0,
+          "refreshed_at_utc": 0.0
+        },
+        "missing_columns": [],
+        "schema_valid": true,
+        "table_sha256": "58b38c7c58053ef3609621a1acdb68c42b26ac62ce7c4e4b8a6ba213d9d50399",
+        "reasons": [
+          "Table vendor_contract_sla_ledger passed schema, row-count (5), null-ratio (0.000), and freshness (4.0h <= 24.0h) checks."
+        ]
+      },
+      {
+        "table_name": "legacy_supply_backlog_partition",
+        "status": "blocked_stale",
+        "row_count": 4,
+        "latest_refresh_utc": "2026-10-18T06:00:00Z",
+        "staleness_hours": 222.0,
+        "max_null_ratio_observed": 0.0,
+        "null_ratios_by_column": {
+          "partition_id": 0.0,
+          "zone_id": 0.0,
+          "backordered_skus": 0.0,
+          "blocked_orders_eur": 0.0,
+          "refreshed_at_utc": 0.0
+        },
+        "missing_columns": [],
+        "schema_valid": true,
+        "table_sha256": "6624f4f28c44b330714f4e396cf5461594b599669a0c49e9f152d831814c7720",
+        "reasons": [
+          "Table legacy_supply_backlog_partition refresh (2026-10-18T06:00:00Z) is 222.0 hours old as of 2026-10-27T12:00:00Z, exceeding max_staleness_hours=48.0 (DQA-FRESH-24H)."
+        ]
+      }
+    ],
+    "healthy_tables": [
+      "zone_operational_kpis",
+      "zone_financial_kpis",
+      "vendor_contract_sla_ledger"
+    ],
+    "warning_tables": [],
+    "blocked_tables": [
+      "legacy_supply_backlog_partition"
+    ]
+  },
+  "readiness_future_stale": {
+    "as_of_utc": "2026-10-30T12:00:00Z",
+    "overall_status": "blocked_stale",
+    "can_execute_queries": false,
+    "database_sha256": "1d8879df130b7ab94612d60bceb587c5e3b8872dbb1661e1aee2e8ddfd2d00bc",
+    "tables": [
+      {
+        "table_name": "zone_operational_kpis",
+        "status": "blocked_stale",
+        "row_count": 4,
+        "latest_refresh_utc": "2026-10-27T09:00:00Z",
+        "staleness_hours": 75.0,
+        "max_null_ratio_observed": 0.0,
+        "null_ratios_by_column": {
+          "zone_id": 0.0,
+          "fiscal_quarter": 0.0,
+          "units_shipped": 0.0,
+          "sla_breach_count": 0.0,
+          "on_time_delivery_pct": 0.0,
+          "mean_repair_hours": 0.0,
+          "automation_coverage_pct": 0.0,
+          "refreshed_at_utc": 0.0
+        },
+        "missing_columns": [],
+        "schema_valid": true,
+        "table_sha256": "0f3ea05be6bb3cc52a28a495bc4fa4cdb9dbdc3a508035e50d663a19716f09ee",
+        "reasons": [
+          "Table zone_operational_kpis refresh (2026-10-27T09:00:00Z) is 75.0 hours old as of 2026-10-30T12:00:00Z, exceeding max_staleness_hours=24.0 (DQA-FRESH-24H)."
+        ]
+      },
+      {
+        "table_name": "zone_financial_kpis",
+        "status": "blocked_stale",
+        "row_count": 4,
+        "latest_refresh_utc": "2026-10-27T09:30:00Z",
+        "staleness_hours": 74.5,
+        "max_null_ratio_observed": 0.0,
+        "null_ratios_by_column": {
+          "zone_id": 0.0,
+          "fiscal_quarter": 0.0,
+          "revenue_eur": 0.0,
+          "opex_budget_eur": 0.0,
+          "actual_opex_eur": 0.0,
+          "opex_variance_pct": 0.0,
+          "gross_margin_pct": 0.0,
+          "cloud_ai_spend_eur": 0.0,
+          "refreshed_at_utc": 0.0
+        },
+        "missing_columns": [],
+        "schema_valid": true,
+        "table_sha256": "38a3820b0650737cff946649f2c15b7810a8129dccc2d926d4548c077e396fc2",
+        "reasons": [
+          "Table zone_financial_kpis refresh (2026-10-27T09:30:00Z) is 74.5 hours old as of 2026-10-30T12:00:00Z, exceeding max_staleness_hours=24.0 (DQA-FRESH-24H)."
+        ]
+      },
+      {
+        "table_name": "vendor_contract_sla_ledger",
+        "status": "blocked_stale",
+        "row_count": 5,
+        "latest_refresh_utc": "2026-10-27T08:00:00Z",
+        "staleness_hours": 76.0,
+        "max_null_ratio_observed": 0.0,
+        "null_ratios_by_column": {
+          "vendor_id": 0.0,
+          "vendor_name": 0.0,
+          "zone_id": 0.0,
+          "annual_contract_eur": 0.0,
+          "uptime_pct": 0.0,
+          "critical_incidents_q3": 0.0,
+          "penalty_rebate_eur": 0.0,
+          "refreshed_at_utc": 0.0
+        },
+        "missing_columns": [],
+        "schema_valid": true,
+        "table_sha256": "58b38c7c58053ef3609621a1acdb68c42b26ac62ce7c4e4b8a6ba213d9d50399",
+        "reasons": [
+          "Table vendor_contract_sla_ledger refresh (2026-10-27T08:00:00Z) is 76.0 hours old as of 2026-10-30T12:00:00Z, exceeding max_staleness_hours=24.0 (DQA-FRESH-24H)."
+        ]
+      },
+      {
+        "table_name": "legacy_supply_backlog_partition",
+        "status": "blocked_stale",
+        "row_count": 4,
+        "latest_refresh_utc": "2026-10-18T06:00:00Z",
+        "staleness_hours": 294.0,
+        "max_null_ratio_observed": 0.0,
+        "null_ratios_by_column": {
+          "partition_id": 0.0,
+          "zone_id": 0.0,
+          "backordered_skus": 0.0,
+          "blocked_orders_eur": 0.0,
+          "refreshed_at_utc": 0.0
+        },
+        "missing_columns": [],
+        "schema_valid": true,
+        "table_sha256": "6624f4f28c44b330714f4e396cf5461594b599669a0c49e9f152d831814c7720",
+        "reasons": [
+          "Table legacy_supply_backlog_partition refresh (2026-10-18T06:00:00Z) is 294.0 hours old as of 2026-10-30T12:00:00Z, exceeding max_staleness_hours=48.0 (DQA-FRESH-24H)."
+        ]
+      }
+    ],
+    "healthy_tables": [],
+    "warning_tables": [],
+    "blocked_tables": [
+      "zone_operational_kpis",
+      "zone_financial_kpis",
+      "vendor_contract_sla_ledger",
+      "legacy_supply_backlog_partition"
+    ]
+  },
+  "scenarios": [
+    {
+      "case_id": "QRY-027",
+      "label": "Hybrid Multi-Source: OPEX Variance vs FIN-CAP-8PCT CFO Spend Freeze",
+      "question": "Which zone triggered the FIN-CAP-8PCT CFO Discretionary Spend Freeze in 2026-Q3 based on its OPEX variance percentage, and which zone requires a VP Finance memo?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "response": {
+        "query_id": "COP-76EFA04DFF",
+        "question": "Which zone triggered the FIN-CAP-8PCT CFO Discretionary Spend Freeze in 2026-Q3 based on its OPEX variance percentage, and which zone requires a VP Finance memo?",
+        "as_of_utc": "2026-10-27T12:00:00Z",
+        "route_modality": "hybrid_multi_source",
+        "data_readiness": {
+          "as_of_utc": "2026-10-27T12:00:00Z",
+          "overall_status": "warn_stale",
+          "can_execute_queries": true,
+          "database_sha256": "1d8879df130b7ab94612d60bceb587c5e3b8872dbb1661e1aee2e8ddfd2d00bc",
+          "tables": [
+            {
+              "table_name": "zone_operational_kpis",
+              "status": "ready",
+              "row_count": 4,
+              "latest_refresh_utc": "2026-10-27T09:00:00Z",
+              "staleness_hours": 3.0,
+              "max_null_ratio_observed": 0.0,
+              "null_ratios_by_column": {
+                "zone_id": 0.0,
+                "fiscal_quarter": 0.0,
+                "units_shipped": 0.0,
+                "sla_breach_count": 0.0,
+                "on_time_delivery_pct": 0.0,
+                "mean_repair_hours": 0.0,
+                "automation_coverage_pct": 0.0,
+                "refreshed_at_utc": 0.0
+              },
+              "missing_columns": [],
+              "schema_valid": true,
+              "table_sha256": "0f3ea05be6bb3cc52a28a495bc4fa4cdb9dbdc3a508035e50d663a19716f09ee",
+              "reasons": [
+                "Table zone_operational_kpis passed schema, row-count (4), null-ratio (0.000), and freshness (3.0h <= 24.0h) checks."
+              ]
+            },
+            {
+              "table_name": "zone_financial_kpis",
+              "status": "ready",
+              "row_count": 4,
+              "latest_refresh_utc": "2026-10-27T09:30:00Z",
+              "staleness_hours": 2.5,
+              "max_null_ratio_observed": 0.0,
+              "null_ratios_by_column": {
+                "zone_id": 0.0,
+                "fiscal_quarter": 0.0,
+                "revenue_eur": 0.0,
+                "opex_budget_eur": 0.0,
+                "actual_opex_eur": 0.0,
+                "opex_variance_pct": 0.0,
+                "gross_margin_pct": 0.0,
+                "cloud_ai_spend_eur": 0.0,
+                "refreshed_at_utc": 0.0
+              },
+              "missing_columns": [],
+              "schema_valid": true,
+              "table_sha256": "38a3820b0650737cff946649f2c15b7810a8129dccc2d926d4548c077e396fc2",
+              "reasons": [
+                "Table zone_financial_kpis passed schema, row-count (4), null-ratio (0.000), and freshness (2.5h <= 24.0h) checks."
+              ]
+            },
+            {
+              "table_name": "vendor_contract_sla_ledger",
+              "status": "ready",
+              "row_count": 5,
+              "latest_refresh_utc": "2026-10-27T08:00:00Z",
+              "staleness_hours": 4.0,
+              "max_null_ratio_observed": 0.0,
+              "null_ratios_by_column": {
+                "vendor_id": 0.0,
+                "vendor_name": 0.0,
+                "zone_id": 0.0,
+                "annual_contract_eur": 0.0,
+                "uptime_pct": 0.0,
+                "critical_incidents_q3": 0.0,
+                "penalty_rebate_eur": 0.0,
+                "refreshed_at_utc": 0.0
+              },
+              "missing_columns": [],
+              "schema_valid": true,
+              "table_sha256": "58b38c7c58053ef3609621a1acdb68c42b26ac62ce7c4e4b8a6ba213d9d50399",
+              "reasons": [
+                "Table vendor_contract_sla_ledger passed schema, row-count (5), null-ratio (0.000), and freshness (4.0h <= 24.0h) checks."
+              ]
+            },
+            {
+              "table_name": "legacy_supply_backlog_partition",
+              "status": "blocked_stale",
+              "row_count": 4,
+              "latest_refresh_utc": "2026-10-18T06:00:00Z",
+              "staleness_hours": 222.0,
+              "max_null_ratio_observed": 0.0,
+              "null_ratios_by_column": {
+                "partition_id": 0.0,
+                "zone_id": 0.0,
+                "backordered_skus": 0.0,
+                "blocked_orders_eur": 0.0,
+                "refreshed_at_utc": 0.0
+              },
+              "missing_columns": [],
+              "schema_valid": true,
+              "table_sha256": "6624f4f28c44b330714f4e396cf5461594b599669a0c49e9f152d831814c7720",
+              "reasons": [
+                "Table legacy_supply_backlog_partition refresh (2026-10-18T06:00:00Z) is 222.0 hours old as of 2026-10-27T12:00:00Z, exceeding max_staleness_hours=48.0 (DQA-FRESH-24H)."
+              ]
+            }
+          ],
+          "healthy_tables": [
+            "zone_operational_kpis",
+            "zone_financial_kpis",
+            "vendor_contract_sla_ledger"
+          ],
+          "warning_tables": [],
+          "blocked_tables": [
+            "legacy_supply_backlog_partition"
+          ]
+        },
+        "blocked_by_freshness_gate": false,
+        "blocked_reason": null,
+        "sql_artifact": {
+          "template_id": "tpl_zone_fin_all",
+          "sql_query": "SELECT zone_id, fiscal_quarter, revenue_eur, opex_budget_eur, actual_opex_eur, opex_variance_pct, gross_margin_pct, cloud_ai_spend_eur FROM zone_financial_kpis ORDER BY opex_variance_pct DESC, zone_id ASC",
+          "parameters": {},
+          "target_tables": [
+            "zone_financial_kpis"
+          ],
+          "ast_validated_read_only": true,
+          "ast_validation_notes": "Verified read-only SELECT AST over allowlisted table(s): zone_financial_kpis.",
+          "row_count": 4,
+          "rows": [
+            {
+              "zone_id": "Zone_US_East_Robotics",
+              "fiscal_quarter": "2026-Q3",
+              "revenue_eur": 11600000.0,
+              "opex_budget_eur": 2800000.0,
+              "actual_opex_eur": 3192000.0,
+              "opex_variance_pct": 14.0,
+              "gross_margin_pct": 54.8,
+              "cloud_ai_spend_eur": 210000.0
+            },
+            {
+              "zone_id": "Zone_EMEA_Imaging",
+              "fiscal_quarter": "2026-Q3",
+              "revenue_eur": 14250000.0,
+              "opex_budget_eur": 3200000.0,
+              "actual_opex_eur": 3344000.0,
+              "opex_variance_pct": 4.5,
+              "gross_margin_pct": 61.5,
+              "cloud_ai_spend_eur": 118000.0
+            },
+            {
+              "zone_id": "Zone_APAC_LabSystems",
+              "fiscal_quarter": "2026-Q3",
+              "revenue_eur": 15450000.0,
+              "opex_budget_eur": 3500000.0,
+              "actual_opex_eur": 3570000.0,
+              "opex_variance_pct": 2.0,
+              "gross_margin_pct": 62.0,
+              "cloud_ai_spend_eur": 132000.0
+            },
+            {
+              "zone_id": "Zone_DACH_Diagnostics",
+              "fiscal_quarter": "2026-Q3",
+              "revenue_eur": 18900000.0,
+              "opex_budget_eur": 4100000.0,
+              "actual_opex_eur": 3980000.0,
+              "opex_variance_pct": -2.93,
+              "gross_margin_pct": 64.2,
+              "cloud_ai_spend_eur": 145000.0
+            }
+          ],
+          "sql_snapshot_sha256": "739814efb0abb6637ee9e32d9edc745b453f0d7fd999ce1ba1bded71c4bbf3b0"
+        },
+        "retrieved_passages": [
+          {
+            "passage_id": "SOP-FIN-202#S1",
+            "doc_id": "SOP-FIN-202",
+            "title": "Quarterly OPEX Variance Cap & CFO Freeze Protocol",
+            "category": "financial_governance",
+            "section_heading": "1. OPEX Variance Thresholds & Discretionary Spend Freeze (FIN-CAP-8PCT)",
+            "effective_date": "2026-08-15",
+            "text": "Under Financial Governance Policy FIN-CAP-8PCT, any operating zone whose quarterly OPEX variance (opex_variance_pct) exceeds 8.0% above budget triggers a mandatory CFO Discretionary Spend Freeze and requires Human-in-the-Loop (HITL) executive approval before releasing new contractor or cloud compute requisitions. Variances between 3.0% and 8.0% require a VP Finance variance memo.",
+            "sha256_digest": "d4a81799f7b31c8a269ea65647c506461f55df0a261fc98f4db9114ada2eda38",
+            "lexical_bm25_score": 1.0,
+            "semantic_score": 0.85,
+            "hybrid_score": 0.9175,
+            "rank": 1
+          },
+          {
+            "passage_id": "SOP-FIN-202#S2",
+            "doc_id": "SOP-FIN-202",
+            "title": "Quarterly OPEX Variance Cap & CFO Freeze Protocol",
+            "category": "financial_governance",
+            "section_heading": "2. Minimum Gross Margin & Cloud AI Spend Allocation (FIN-GM-58)",
+            "effective_date": "2026-08-15",
+            "text": "Directive FIN-GM-58 requires operating zones to sustain a minimum quarterly gross margin of 58.0% and caps quarterly cloud AI inference and training expenditure at EUR 180,000 per zone unless a high-volume workload waiver is countersigned.",
+            "sha256_digest": "df33f1e11d472b4eb9aeb1f44d232304e58b2ff97dc54f96f2e76a6680e080b4",
+            "lexical_bm25_score": 0.5,
+            "semantic_score": 0.0,
+            "hybrid_score": 0.225,
+            "rank": 2
+          }
+        ],
+        "draft_answer": "SQL KPI Evidence: Zone_US_East_Robotics: EUR 11,600,000 revenue, EUR 3,192,000 actual OPEX, 14.0% OPEX variance, 54.8% gross margin, EUR 210,000 cloud AI spend; Zone_EMEA_Imaging: EUR 14,250,000 revenue, EUR 3,344,000 actual OPEX, 4.5% OPEX variance, 61.5% gross margin, EUR 118,000 cloud AI spend; Zone_APAC_LabSystems: EUR 15,450,000 revenue, EUR 3,570,000 actual OPEX, 2.0% OPEX variance, 62.0% gross margin, EUR 132,000 cloud AI spend; Zone_DACH_Diagnostics: EUR 18,900,000 revenue, EUR 3,980,000 actual OPEX, -2.93% OPEX variance, 64.2% gross margin, EUR 145,000 cloud AI spend. Policy Governance Evidence: Under Financial Governance Policy FIN-CAP-8PCT, any operating zone whose quarterly OPEX variance (opex_variance_pct) exceeds 8.0% above budget triggers a mandatory CFO Discretionary Spend Freeze and requires Human-in-the-Loop (HITL) executive approval before releasing new contractor or cloud compute requisitions. Variances between 3.0% and 8.0% require a VP Finance variance memo. [SOP-FIN-202#S1] Directive FIN-GM-58 requires operating zones to sustain a minimum quarterly gross margin of 58.0% and caps quarterly cloud AI inference and training expenditure at EUR 180,000 per zone unless a high-volume workload waiver is countersigned. [SOP-FIN-202#S2]",
+        "numerical_verification": {
+          "all_numbers_verified": true,
+          "total_numeric_tokens": 25,
+          "verified_tokens": 25,
+          "unverified_tokens": [],
+          "numerical_parity_rate": 1.0,
+          "checks": [
+            {
+              "raw_token": "EUR 11,600,000",
+              "normalized_value": 11600000.0,
+              "token_kind": "currency",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_fin_all[0].revenue_eur",
+              "expected_exact_value": 11600000.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "EUR 3,192,000",
+              "normalized_value": 3192000.0,
+              "token_kind": "currency",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_fin_all[0].actual_opex_eur",
+              "expected_exact_value": 3192000.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "14.0%",
+              "normalized_value": 14.0,
+              "token_kind": "percentage",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_fin_all[0].opex_variance_pct",
+              "expected_exact_value": 14.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "54.8%",
+              "normalized_value": 54.8,
+              "token_kind": "percentage",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_fin_all[0].gross_margin_pct",
+              "expected_exact_value": 54.8,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "EUR 210,000",
+              "normalized_value": 210000.0,
+              "token_kind": "currency",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_fin_all[0].cloud_ai_spend_eur",
+              "expected_exact_value": 210000.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "EUR 14,250,000",
+              "normalized_value": 14250000.0,
+              "token_kind": "currency",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_fin_all[1].revenue_eur",
+              "expected_exact_value": 14250000.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "EUR 3,344,000",
+              "normalized_value": 3344000.0,
+              "token_kind": "currency",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_fin_all[1].actual_opex_eur",
+              "expected_exact_value": 3344000.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "4.5%",
+              "normalized_value": 4.5,
+              "token_kind": "percentage",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_fin_all[1].opex_variance_pct",
+              "expected_exact_value": 4.5,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "61.5%",
+              "normalized_value": 61.5,
+              "token_kind": "percentage",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_fin_all[1].gross_margin_pct",
+              "expected_exact_value": 61.5,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "EUR 118,000",
+              "normalized_value": 118000.0,
+              "token_kind": "currency",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_fin_all[1].cloud_ai_spend_eur",
+              "expected_exact_value": 118000.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "EUR 15,450,000",
+              "normalized_value": 15450000.0,
+              "token_kind": "currency",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_fin_all[2].revenue_eur",
+              "expected_exact_value": 15450000.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "EUR 3,570,000",
+              "normalized_value": 3570000.0,
+              "token_kind": "currency",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_fin_all[2].actual_opex_eur",
+              "expected_exact_value": 3570000.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "2.0%",
+              "normalized_value": 2.0,
+              "token_kind": "percentage",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_fin_all[2].opex_variance_pct",
+              "expected_exact_value": 2.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "62.0%",
+              "normalized_value": 62.0,
+              "token_kind": "percentage",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_fin_all[2].gross_margin_pct",
+              "expected_exact_value": 62.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "EUR 132,000",
+              "normalized_value": 132000.0,
+              "token_kind": "currency",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_fin_all[2].cloud_ai_spend_eur",
+              "expected_exact_value": 132000.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "EUR 18,900,000",
+              "normalized_value": 18900000.0,
+              "token_kind": "currency",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_fin_all[3].revenue_eur",
+              "expected_exact_value": 18900000.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "EUR 3,980,000",
+              "normalized_value": 3980000.0,
+              "token_kind": "currency",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_fin_all[3].actual_opex_eur",
+              "expected_exact_value": 3980000.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "-2.93%",
+              "normalized_value": -2.93,
+              "token_kind": "percentage",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_fin_all[3].opex_variance_pct",
+              "expected_exact_value": -2.93,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "64.2%",
+              "normalized_value": 64.2,
+              "token_kind": "percentage",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_fin_all[3].gross_margin_pct",
+              "expected_exact_value": 64.2,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "EUR 145,000",
+              "normalized_value": 145000.0,
+              "token_kind": "currency",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_fin_all[3].cloud_ai_spend_eur",
+              "expected_exact_value": 145000.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "8.0%",
+              "normalized_value": 8.0,
+              "token_kind": "percentage",
+              "matched_source": "document_passage",
+              "matched_reference": "SOP-FIN-202#S1",
+              "expected_exact_value": 8.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "3.0%",
+              "normalized_value": 3.0,
+              "token_kind": "percentage",
+              "matched_source": "document_passage",
+              "matched_reference": "SOP-FIN-202#S1",
+              "expected_exact_value": 3.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "8.0%",
+              "normalized_value": 8.0,
+              "token_kind": "percentage",
+              "matched_source": "document_passage",
+              "matched_reference": "SOP-FIN-202#S1",
+              "expected_exact_value": 8.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "58.0%",
+              "normalized_value": 58.0,
+              "token_kind": "percentage",
+              "matched_source": "document_passage",
+              "matched_reference": "SOP-FIN-202#S2",
+              "expected_exact_value": 58.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "EUR 180,000",
+              "normalized_value": 180000.0,
+              "token_kind": "currency",
+              "matched_source": "document_passage",
+              "matched_reference": "SOP-FIN-202#S2",
+              "expected_exact_value": 180000.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            }
+          ]
+        },
+        "composite_evidence_sha256": "ebc97565e9d53ebec244316ae902d1caa171f78a97a7dff40b24f9fac451ec4f",
+        "workflow_id": null,
+        "workflow_state": null
+      }
+    },
+    {
+      "case_id": "QRY-030",
+      "label": "Hybrid Multi-Source: Supplier VND-LOG-03 Penalty Rebate vs VND-SLA-995",
+      "question": "Why was supplier VND-LOG-03 assessed a EUR 64,800 penalty rebate in 2026-Q3 under clause VND-SLA-995?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "response": {
+        "query_id": "COP-D2364461F9",
+        "question": "Why was supplier VND-LOG-03 assessed a EUR 64,800 penalty rebate in 2026-Q3 under clause VND-SLA-995?",
+        "as_of_utc": "2026-10-27T12:00:00Z",
+        "route_modality": "hybrid_multi_source",
+        "data_readiness": {
+          "as_of_utc": "2026-10-27T12:00:00Z",
+          "overall_status": "warn_stale",
+          "can_execute_queries": true,
+          "database_sha256": "1d8879df130b7ab94612d60bceb587c5e3b8872dbb1661e1aee2e8ddfd2d00bc",
+          "tables": [
+            {
+              "table_name": "zone_operational_kpis",
+              "status": "ready",
+              "row_count": 4,
+              "latest_refresh_utc": "2026-10-27T09:00:00Z",
+              "staleness_hours": 3.0,
+              "max_null_ratio_observed": 0.0,
+              "null_ratios_by_column": {
+                "zone_id": 0.0,
+                "fiscal_quarter": 0.0,
+                "units_shipped": 0.0,
+                "sla_breach_count": 0.0,
+                "on_time_delivery_pct": 0.0,
+                "mean_repair_hours": 0.0,
+                "automation_coverage_pct": 0.0,
+                "refreshed_at_utc": 0.0
+              },
+              "missing_columns": [],
+              "schema_valid": true,
+              "table_sha256": "0f3ea05be6bb3cc52a28a495bc4fa4cdb9dbdc3a508035e50d663a19716f09ee",
+              "reasons": [
+                "Table zone_operational_kpis passed schema, row-count (4), null-ratio (0.000), and freshness (3.0h <= 24.0h) checks."
+              ]
+            },
+            {
+              "table_name": "zone_financial_kpis",
+              "status": "ready",
+              "row_count": 4,
+              "latest_refresh_utc": "2026-10-27T09:30:00Z",
+              "staleness_hours": 2.5,
+              "max_null_ratio_observed": 0.0,
+              "null_ratios_by_column": {
+                "zone_id": 0.0,
+                "fiscal_quarter": 0.0,
+                "revenue_eur": 0.0,
+                "opex_budget_eur": 0.0,
+                "actual_opex_eur": 0.0,
+                "opex_variance_pct": 0.0,
+                "gross_margin_pct": 0.0,
+                "cloud_ai_spend_eur": 0.0,
+                "refreshed_at_utc": 0.0
+              },
+              "missing_columns": [],
+              "schema_valid": true,
+              "table_sha256": "38a3820b0650737cff946649f2c15b7810a8129dccc2d926d4548c077e396fc2",
+              "reasons": [
+                "Table zone_financial_kpis passed schema, row-count (4), null-ratio (0.000), and freshness (2.5h <= 24.0h) checks."
+              ]
+            },
+            {
+              "table_name": "vendor_contract_sla_ledger",
+              "status": "ready",
+              "row_count": 5,
+              "latest_refresh_utc": "2026-10-27T08:00:00Z",
+              "staleness_hours": 4.0,
+              "max_null_ratio_observed": 0.0,
+              "null_ratios_by_column": {
+                "vendor_id": 0.0,
+                "vendor_name": 0.0,
+                "zone_id": 0.0,
+                "annual_contract_eur": 0.0,
+                "uptime_pct": 0.0,
+                "critical_incidents_q3": 0.0,
+                "penalty_rebate_eur": 0.0,
+                "refreshed_at_utc": 0.0
+              },
+              "missing_columns": [],
+              "schema_valid": true,
+              "table_sha256": "58b38c7c58053ef3609621a1acdb68c42b26ac62ce7c4e4b8a6ba213d9d50399",
+              "reasons": [
+                "Table vendor_contract_sla_ledger passed schema, row-count (5), null-ratio (0.000), and freshness (4.0h <= 24.0h) checks."
+              ]
+            },
+            {
+              "table_name": "legacy_supply_backlog_partition",
+              "status": "blocked_stale",
+              "row_count": 4,
+              "latest_refresh_utc": "2026-10-18T06:00:00Z",
+              "staleness_hours": 222.0,
+              "max_null_ratio_observed": 0.0,
+              "null_ratios_by_column": {
+                "partition_id": 0.0,
+                "zone_id": 0.0,
+                "backordered_skus": 0.0,
+                "blocked_orders_eur": 0.0,
+                "refreshed_at_utc": 0.0
+              },
+              "missing_columns": [],
+              "schema_valid": true,
+              "table_sha256": "6624f4f28c44b330714f4e396cf5461594b599669a0c49e9f152d831814c7720",
+              "reasons": [
+                "Table legacy_supply_backlog_partition refresh (2026-10-18T06:00:00Z) is 222.0 hours old as of 2026-10-27T12:00:00Z, exceeding max_staleness_hours=48.0 (DQA-FRESH-24H)."
+              ]
+            }
+          ],
+          "healthy_tables": [
+            "zone_operational_kpis",
+            "zone_financial_kpis",
+            "vendor_contract_sla_ledger"
+          ],
+          "warning_tables": [],
+          "blocked_tables": [
+            "legacy_supply_backlog_partition"
+          ]
+        },
+        "blocked_by_freshness_gate": false,
+        "blocked_reason": null,
+        "sql_artifact": {
+          "template_id": "tpl_vendor_by_id",
+          "sql_query": "SELECT vendor_id, vendor_name, zone_id, annual_contract_eur, uptime_pct, critical_incidents_q3, penalty_rebate_eur FROM vendor_contract_sla_ledger WHERE vendor_id = :vendor_id ORDER BY vendor_id ASC",
+          "parameters": {
+            "vendor_id": "VND-LOG-03"
+          },
+          "target_tables": [
+            "vendor_contract_sla_ledger"
+          ],
+          "ast_validated_read_only": true,
+          "ast_validation_notes": "Verified read-only SELECT AST over allowlisted table(s): vendor_contract_sla_ledger.",
+          "row_count": 1,
+          "rows": [
+            {
+              "vendor_id": "VND-LOG-03",
+              "vendor_name": "Atlantic Precision Servo Corp",
+              "zone_id": "Zone_US_East_Robotics",
+              "annual_contract_eur": 540000.0,
+              "uptime_pct": 98.2,
+              "critical_incidents_q3": 4,
+              "penalty_rebate_eur": 64800.0
+            }
+          ],
+          "sql_snapshot_sha256": "482b4324d93dbe879733f6b5a1776c44fc4526899f1857b7bce9557d13b44f13"
+        },
+        "retrieved_passages": [
+          {
+            "passage_id": "SOP-VND-303#S1",
+            "doc_id": "SOP-VND-303",
+            "title": "Tier-1 Supplier Uptime SLA & Penalty Rebate Schedule",
+            "category": "vendor_procurement",
+            "section_heading": "1. Minimum 99.5% Supplier Uptime & Penalty Tiers (VND-SLA-995)",
+            "effective_date": "2026-07-20",
+            "text": "Clause VND-SLA-995 mandates a minimum 99.5% quarterly availability (uptime_pct) across all Tier-1 production suppliers. Suppliers recording uptime between 99.0% and 99.49% incur a 5.0% annual contract penalty rebate. Suppliers falling below 99.0% uptime or recording 3 or more critical incidents in a quarter incur a 12.0% annual contract penalty rebate and formal vendor probation.",
+            "sha256_digest": "febde98ce298212931783e5f3deb315903daf3fa2ef07cfbc721bee07c414ac5",
+            "lexical_bm25_score": 1.0,
+            "semantic_score": 0.85,
+            "hybrid_score": 0.9175,
+            "rank": 1
+          },
+          {
+            "passage_id": "SOP-VND-303#S2",
+            "doc_id": "SOP-VND-303",
+            "title": "Tier-1 Supplier Uptime SLA & Penalty Rebate Schedule",
+            "category": "vendor_procurement",
+            "section_heading": "2. Executive Procurement Board Review Threshold (VND-BOARD-500K)",
+            "effective_date": "2026-07-20",
+            "text": "Under Schedule VND-BOARD-500K, any Tier-1 supplier contract with an annual contract value (annual_contract_eur) of EUR 500,000 or higher requires semi-annual resilience auditing and dual sign-off from the VP of Procurement and Chief Information Security Officer.",
+            "sha256_digest": "fdcfe6133a8d6311a7c3be94f98bd681c3c35163c03aab4d9c213b187f2ce478",
+            "lexical_bm25_score": 0.461538,
+            "semantic_score": 0.0,
+            "hybrid_score": 0.207692,
+            "rank": 2
+          }
+        ],
+        "draft_answer": "SQL KPI Evidence: VND-LOG-03: EUR 540,000 contract, 98.2% uptime, 4 critical incidents, EUR 64,800 rebate. Policy Governance Evidence: Clause VND-SLA-995 mandates a minimum 99.5% quarterly availability (uptime_pct) across all Tier-1 production suppliers. Suppliers recording uptime between 99.0% and 99.49% incur a 5.0% annual contract penalty rebate. Suppliers falling below 99.0% uptime or recording 3 or more critical incidents in a quarter incur a 12.0% annual contract penalty rebate and formal vendor probation. [SOP-VND-303#S1] Under Schedule VND-BOARD-500K, any Tier-1 supplier contract with an annual contract value (annual_contract_eur) of EUR 500,000 or higher requires semi-annual resilience auditing and dual sign-off from the VP of Procurement and Chief Information Security Officer. [SOP-VND-303#S2]",
+        "numerical_verification": {
+          "all_numbers_verified": true,
+          "total_numeric_tokens": 12,
+          "verified_tokens": 12,
+          "unverified_tokens": [],
+          "numerical_parity_rate": 1.0,
+          "checks": [
+            {
+              "raw_token": "EUR 540,000",
+              "normalized_value": 540000.0,
+              "token_kind": "currency",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_vendor_by_id[0].annual_contract_eur",
+              "expected_exact_value": 540000.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "98.2%",
+              "normalized_value": 98.2,
+              "token_kind": "percentage",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_vendor_by_id[0].uptime_pct",
+              "expected_exact_value": 98.2,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "4",
+              "normalized_value": 4.0,
+              "token_kind": "integer",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_vendor_by_id[0].critical_incidents_q3",
+              "expected_exact_value": 4.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "EUR 64,800",
+              "normalized_value": 64800.0,
+              "token_kind": "currency",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_vendor_by_id[0].penalty_rebate_eur",
+              "expected_exact_value": 64800.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "99.5%",
+              "normalized_value": 99.5,
+              "token_kind": "percentage",
+              "matched_source": "document_passage",
+              "matched_reference": "SOP-VND-303#S1",
+              "expected_exact_value": 99.5,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "99.0%",
+              "normalized_value": 99.0,
+              "token_kind": "percentage",
+              "matched_source": "document_passage",
+              "matched_reference": "SOP-VND-303#S1",
+              "expected_exact_value": 99.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "99.49%",
+              "normalized_value": 99.49,
+              "token_kind": "percentage",
+              "matched_source": "document_passage",
+              "matched_reference": "SOP-VND-303#S1",
+              "expected_exact_value": 99.49,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "5.0%",
+              "normalized_value": 5.0,
+              "token_kind": "percentage",
+              "matched_source": "document_passage",
+              "matched_reference": "SOP-VND-303#S1",
+              "expected_exact_value": 5.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "99.0%",
+              "normalized_value": 99.0,
+              "token_kind": "percentage",
+              "matched_source": "document_passage",
+              "matched_reference": "SOP-VND-303#S1",
+              "expected_exact_value": 99.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "3",
+              "normalized_value": 3.0,
+              "token_kind": "integer",
+              "matched_source": "document_passage",
+              "matched_reference": "SOP-VND-303#S1",
+              "expected_exact_value": 3.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "12.0%",
+              "normalized_value": 12.0,
+              "token_kind": "percentage",
+              "matched_source": "document_passage",
+              "matched_reference": "SOP-VND-303#S1",
+              "expected_exact_value": 12.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "EUR 500,000",
+              "normalized_value": 500000.0,
+              "token_kind": "currency",
+              "matched_source": "document_passage",
+              "matched_reference": "SOP-VND-303#S2",
+              "expected_exact_value": 500000.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            }
+          ]
+        },
+        "composite_evidence_sha256": "f9dab7d7d2dd2576bf4f8e1d1db0d921a85fa2546606810940e1fd9994ff326e",
+        "workflow_id": null,
+        "workflow_state": null
+      }
+    },
+    {
+      "case_id": "QRY-025",
+      "label": "Hybrid Multi-Source: Zone OTD % & Breaches vs OPS-SLA-95 CAPA Gate",
+      "question": "Which operational zone violated the OPS-SLA-95 minimum 95.0% on-time delivery or 5-breach cap in 2026-Q3, and what action is required?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "response": {
+        "query_id": "COP-9E5F861F9F",
+        "question": "Which operational zone violated the OPS-SLA-95 minimum 95.0% on-time delivery or 5-breach cap in 2026-Q3, and what action is required?",
+        "as_of_utc": "2026-10-27T12:00:00Z",
+        "route_modality": "hybrid_multi_source",
+        "data_readiness": {
+          "as_of_utc": "2026-10-27T12:00:00Z",
+          "overall_status": "warn_stale",
+          "can_execute_queries": true,
+          "database_sha256": "1d8879df130b7ab94612d60bceb587c5e3b8872dbb1661e1aee2e8ddfd2d00bc",
+          "tables": [
+            {
+              "table_name": "zone_operational_kpis",
+              "status": "ready",
+              "row_count": 4,
+              "latest_refresh_utc": "2026-10-27T09:00:00Z",
+              "staleness_hours": 3.0,
+              "max_null_ratio_observed": 0.0,
+              "null_ratios_by_column": {
+                "zone_id": 0.0,
+                "fiscal_quarter": 0.0,
+                "units_shipped": 0.0,
+                "sla_breach_count": 0.0,
+                "on_time_delivery_pct": 0.0,
+                "mean_repair_hours": 0.0,
+                "automation_coverage_pct": 0.0,
+                "refreshed_at_utc": 0.0
+              },
+              "missing_columns": [],
+              "schema_valid": true,
+              "table_sha256": "0f3ea05be6bb3cc52a28a495bc4fa4cdb9dbdc3a508035e50d663a19716f09ee",
+              "reasons": [
+                "Table zone_operational_kpis passed schema, row-count (4), null-ratio (0.000), and freshness (3.0h <= 24.0h) checks."
+              ]
+            },
+            {
+              "table_name": "zone_financial_kpis",
+              "status": "ready",
+              "row_count": 4,
+              "latest_refresh_utc": "2026-10-27T09:30:00Z",
+              "staleness_hours": 2.5,
+              "max_null_ratio_observed": 0.0,
+              "null_ratios_by_column": {
+                "zone_id": 0.0,
+                "fiscal_quarter": 0.0,
+                "revenue_eur": 0.0,
+                "opex_budget_eur": 0.0,
+                "actual_opex_eur": 0.0,
+                "opex_variance_pct": 0.0,
+                "gross_margin_pct": 0.0,
+                "cloud_ai_spend_eur": 0.0,
+                "refreshed_at_utc": 0.0
+              },
+              "missing_columns": [],
+              "schema_valid": true,
+              "table_sha256": "38a3820b0650737cff946649f2c15b7810a8129dccc2d926d4548c077e396fc2",
+              "reasons": [
+                "Table zone_financial_kpis passed schema, row-count (4), null-ratio (0.000), and freshness (2.5h <= 24.0h) checks."
+              ]
+            },
+            {
+              "table_name": "vendor_contract_sla_ledger",
+              "status": "ready",
+              "row_count": 5,
+              "latest_refresh_utc": "2026-10-27T08:00:00Z",
+              "staleness_hours": 4.0,
+              "max_null_ratio_observed": 0.0,
+              "null_ratios_by_column": {
+                "vendor_id": 0.0,
+                "vendor_name": 0.0,
+                "zone_id": 0.0,
+                "annual_contract_eur": 0.0,
+                "uptime_pct": 0.0,
+                "critical_incidents_q3": 0.0,
+                "penalty_rebate_eur": 0.0,
+                "refreshed_at_utc": 0.0
+              },
+              "missing_columns": [],
+              "schema_valid": true,
+              "table_sha256": "58b38c7c58053ef3609621a1acdb68c42b26ac62ce7c4e4b8a6ba213d9d50399",
+              "reasons": [
+                "Table vendor_contract_sla_ledger passed schema, row-count (5), null-ratio (0.000), and freshness (4.0h <= 24.0h) checks."
+              ]
+            },
+            {
+              "table_name": "legacy_supply_backlog_partition",
+              "status": "blocked_stale",
+              "row_count": 4,
+              "latest_refresh_utc": "2026-10-18T06:00:00Z",
+              "staleness_hours": 222.0,
+              "max_null_ratio_observed": 0.0,
+              "null_ratios_by_column": {
+                "partition_id": 0.0,
+                "zone_id": 0.0,
+                "backordered_skus": 0.0,
+                "blocked_orders_eur": 0.0,
+                "refreshed_at_utc": 0.0
+              },
+              "missing_columns": [],
+              "schema_valid": true,
+              "table_sha256": "6624f4f28c44b330714f4e396cf5461594b599669a0c49e9f152d831814c7720",
+              "reasons": [
+                "Table legacy_supply_backlog_partition refresh (2026-10-18T06:00:00Z) is 222.0 hours old as of 2026-10-27T12:00:00Z, exceeding max_staleness_hours=48.0 (DQA-FRESH-24H)."
+              ]
+            }
+          ],
+          "healthy_tables": [
+            "zone_operational_kpis",
+            "zone_financial_kpis",
+            "vendor_contract_sla_ledger"
+          ],
+          "warning_tables": [],
+          "blocked_tables": [
+            "legacy_supply_backlog_partition"
+          ]
+        },
+        "blocked_by_freshness_gate": false,
+        "blocked_reason": null,
+        "sql_artifact": {
+          "template_id": "tpl_zone_ops_all",
+          "sql_query": "SELECT zone_id, fiscal_quarter, units_shipped, sla_breach_count, on_time_delivery_pct, mean_repair_hours, automation_coverage_pct FROM zone_operational_kpis ORDER BY mean_repair_hours DESC, zone_id ASC",
+          "parameters": {},
+          "target_tables": [
+            "zone_operational_kpis"
+          ],
+          "ast_validated_read_only": true,
+          "ast_validation_notes": "Verified read-only SELECT AST over allowlisted table(s): zone_operational_kpis.",
+          "row_count": 4,
+          "rows": [
+            {
+              "zone_id": "Zone_US_East_Robotics",
+              "fiscal_quarter": "2026-Q3",
+              "units_shipped": 1120,
+              "sla_breach_count": 9,
+              "on_time_delivery_pct": 91.2,
+              "mean_repair_hours": 7.8,
+              "automation_coverage_pct": 71.4
+            },
+            {
+              "zone_id": "Zone_EMEA_Imaging",
+              "fiscal_quarter": "2026-Q3",
+              "units_shipped": 1420,
+              "sla_breach_count": 3,
+              "on_time_delivery_pct": 96.8,
+              "mean_repair_hours": 4.5,
+              "automation_coverage_pct": 82.0
+            },
+            {
+              "zone_id": "Zone_APAC_LabSystems",
+              "fiscal_quarter": "2026-Q3",
+              "units_shipped": 1610,
+              "sla_breach_count": 2,
+              "on_time_delivery_pct": 97.1,
+              "mean_repair_hours": 3.9,
+              "automation_coverage_pct": 84.2
+            },
+            {
+              "zone_id": "Zone_DACH_Diagnostics",
+              "fiscal_quarter": "2026-Q3",
+              "units_shipped": 1850,
+              "sla_breach_count": 1,
+              "on_time_delivery_pct": 98.4,
+              "mean_repair_hours": 3.2,
+              "automation_coverage_pct": 88.5
+            }
+          ],
+          "sql_snapshot_sha256": "f6035e6d5bfcaaf99175f98cc0a994251b58f79f88cbc1017067f558605a6d56"
+        },
+        "retrieved_passages": [
+          {
+            "passage_id": "SOP-OPS-101#S1",
+            "doc_id": "SOP-OPS-101",
+            "title": "Zone On-Time Delivery SLA & Escalation Thresholds",
+            "category": "operations_governance",
+            "section_heading": "1. Minimum On-Time Delivery Target & Breach Cap (OPS-SLA-95)",
+            "effective_date": "2026-08-01",
+            "text": "Under Operational Policy OPS-SLA-95, every manufacturing and clinical zone must maintain a minimum quarterly On-Time Delivery (OTD) rate of 95.0% and no more than 5 quarterly SLA breaches. Any zone falling below 95.0% OTD or exceeding 5 SLA breaches is classified as Red-Tier Non-Compliant and must submit a Root-Cause Corrective Action Plan (CAPA) within 5 business days.",
+            "sha256_digest": "6869dd3f969b65329e17f6de3f6b63e9f218bd9926775d143082779e2a440616",
+            "lexical_bm25_score": 1.0,
+            "semantic_score": 0.85,
+            "hybrid_score": 0.9175,
+            "rank": 1
+          },
+          {
+            "passage_id": "SOP-OPS-101#S2",
+            "doc_id": "SOP-OPS-101",
+            "title": "Zone On-Time Delivery SLA & Escalation Thresholds",
+            "category": "operations_governance",
+            "section_heading": "2. Mean Time To Repair (MTTR) Ceiling & Automation Target (OPS-MTTR-6H)",
+            "effective_date": "2026-08-01",
+            "text": "Control OPS-MTTR-6H establishes a maximum Mean Time To Repair (mean_repair_hours) ceiling of 6.0 hours for automated diagnostic and robotics lines, alongside a target workflow automation coverage of at least 80.0%. Zones exceeding 6.0 repair hours require an immediate field-engineering dispatch audit.",
+            "sha256_digest": "e6459b17c61393d1c25bf26d56e98d8312591233bcb1a64a4734596b78b2c9ef",
+            "lexical_bm25_score": 0.384615,
+            "semantic_score": 0.0,
+            "hybrid_score": 0.173077,
+            "rank": 2
+          }
+        ],
+        "draft_answer": "SQL KPI Evidence: Zone_US_East_Robotics: 1,120 units, 9 SLA breaches, 91.2% OTD, 7.8 repair hours, 71.4% automation; Zone_EMEA_Imaging: 1,420 units, 3 SLA breaches, 96.8% OTD, 4.5 repair hours, 82.0% automation; Zone_APAC_LabSystems: 1,610 units, 2 SLA breaches, 97.1% OTD, 3.9 repair hours, 84.2% automation; Zone_DACH_Diagnostics: 1,850 units, 1 SLA breaches, 98.4% OTD, 3.2 repair hours, 88.5% automation. Policy Governance Evidence: Under Operational Policy OPS-SLA-95, every manufacturing and clinical zone must maintain a minimum quarterly On-Time Delivery (OTD) rate of 95.0% and no more than 5 quarterly SLA breaches. Any zone falling below 95.0% OTD or exceeding 5 SLA breaches is classified as Red-Tier Non-Compliant and must submit a Root-Cause Corrective Action Plan (CAPA) within 5 business days. [SOP-OPS-101#S1] Control OPS-MTTR-6H establishes a maximum Mean Time To Repair (mean_repair_hours) ceiling of 6.0 hours for automated diagnostic and robotics lines, alongside a target workflow automation coverage of at least 80.0%. Zones exceeding 6.0 repair hours require an immediate field-engineering dispatch audit. [SOP-OPS-101#S2]",
+        "numerical_verification": {
+          "all_numbers_verified": true,
+          "total_numeric_tokens": 28,
+          "verified_tokens": 28,
+          "unverified_tokens": [],
+          "numerical_parity_rate": 1.0,
+          "checks": [
+            {
+              "raw_token": "1,120",
+              "normalized_value": 1120.0,
+              "token_kind": "integer",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_ops_all[0].units_shipped",
+              "expected_exact_value": 1120.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "9",
+              "normalized_value": 9.0,
+              "token_kind": "integer",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_ops_all[0].sla_breach_count",
+              "expected_exact_value": 9.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "91.2%",
+              "normalized_value": 91.2,
+              "token_kind": "percentage",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_ops_all[0].on_time_delivery_pct",
+              "expected_exact_value": 91.2,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "7.8",
+              "normalized_value": 7.8,
+              "token_kind": "decimal",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_ops_all[0].mean_repair_hours",
+              "expected_exact_value": 7.8,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "71.4%",
+              "normalized_value": 71.4,
+              "token_kind": "percentage",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_ops_all[0].automation_coverage_pct",
+              "expected_exact_value": 71.4,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "1,420",
+              "normalized_value": 1420.0,
+              "token_kind": "integer",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_ops_all[1].units_shipped",
+              "expected_exact_value": 1420.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "3",
+              "normalized_value": 3.0,
+              "token_kind": "integer",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_ops_all[1].sla_breach_count",
+              "expected_exact_value": 3.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "96.8%",
+              "normalized_value": 96.8,
+              "token_kind": "percentage",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_ops_all[1].on_time_delivery_pct",
+              "expected_exact_value": 96.8,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "4.5",
+              "normalized_value": 4.5,
+              "token_kind": "decimal",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_ops_all[1].mean_repair_hours",
+              "expected_exact_value": 4.5,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "82.0%",
+              "normalized_value": 82.0,
+              "token_kind": "percentage",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_ops_all[1].automation_coverage_pct",
+              "expected_exact_value": 82.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "1,610",
+              "normalized_value": 1610.0,
+              "token_kind": "integer",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_ops_all[2].units_shipped",
+              "expected_exact_value": 1610.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "2",
+              "normalized_value": 2.0,
+              "token_kind": "integer",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_ops_all[2].sla_breach_count",
+              "expected_exact_value": 2.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "97.1%",
+              "normalized_value": 97.1,
+              "token_kind": "percentage",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_ops_all[2].on_time_delivery_pct",
+              "expected_exact_value": 97.1,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "3.9",
+              "normalized_value": 3.9,
+              "token_kind": "decimal",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_ops_all[2].mean_repair_hours",
+              "expected_exact_value": 3.9,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "84.2%",
+              "normalized_value": 84.2,
+              "token_kind": "percentage",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_ops_all[2].automation_coverage_pct",
+              "expected_exact_value": 84.2,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "1,850",
+              "normalized_value": 1850.0,
+              "token_kind": "integer",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_ops_all[3].units_shipped",
+              "expected_exact_value": 1850.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "1",
+              "normalized_value": 1.0,
+              "token_kind": "integer",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_ops_all[3].sla_breach_count",
+              "expected_exact_value": 1.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "98.4%",
+              "normalized_value": 98.4,
+              "token_kind": "percentage",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_ops_all[3].on_time_delivery_pct",
+              "expected_exact_value": 98.4,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "3.2",
+              "normalized_value": 3.2,
+              "token_kind": "decimal",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_ops_all[3].mean_repair_hours",
+              "expected_exact_value": 3.2,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "88.5%",
+              "normalized_value": 88.5,
+              "token_kind": "percentage",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_ops_all[3].automation_coverage_pct",
+              "expected_exact_value": 88.5,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "95.0%",
+              "normalized_value": 95.0,
+              "token_kind": "percentage",
+              "matched_source": "document_passage",
+              "matched_reference": "SOP-OPS-101#S1",
+              "expected_exact_value": 95.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "5",
+              "normalized_value": 5.0,
+              "token_kind": "integer",
+              "matched_source": "document_passage",
+              "matched_reference": "SOP-OPS-101#S1",
+              "expected_exact_value": 5.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "95.0%",
+              "normalized_value": 95.0,
+              "token_kind": "percentage",
+              "matched_source": "document_passage",
+              "matched_reference": "SOP-OPS-101#S1",
+              "expected_exact_value": 95.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "5",
+              "normalized_value": 5.0,
+              "token_kind": "integer",
+              "matched_source": "document_passage",
+              "matched_reference": "SOP-OPS-101#S1",
+              "expected_exact_value": 5.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "5",
+              "normalized_value": 5.0,
+              "token_kind": "integer",
+              "matched_source": "document_passage",
+              "matched_reference": "SOP-OPS-101#S1",
+              "expected_exact_value": 5.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "6.0",
+              "normalized_value": 6.0,
+              "token_kind": "decimal",
+              "matched_source": "document_passage",
+              "matched_reference": "SOP-OPS-101#S2",
+              "expected_exact_value": 6.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "80.0%",
+              "normalized_value": 80.0,
+              "token_kind": "percentage",
+              "matched_source": "document_passage",
+              "matched_reference": "SOP-OPS-101#S2",
+              "expected_exact_value": 80.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "6.0",
+              "normalized_value": 6.0,
+              "token_kind": "decimal",
+              "matched_source": "document_passage",
+              "matched_reference": "SOP-OPS-101#S2",
+              "expected_exact_value": 6.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            }
+          ]
+        },
+        "composite_evidence_sha256": "8740c9384f81a3fde4c3a903442b5e0168e041e6234bd105bd175ecd9079f19f",
+        "workflow_id": null,
+        "workflow_state": null
+      }
+    },
+    {
+      "case_id": "QRY-010",
+      "label": "SQL Only (AST-Validated Aggregation): Total Revenue, OPEX & Cloud AI Spend",
+      "question": "What is the total revenue, total actual OPEX, and total cloud AI spend in EUR across all zones in 2026-Q3?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "response": {
+        "query_id": "COP-0B2B2481A3",
+        "question": "What is the total revenue, total actual OPEX, and total cloud AI spend in EUR across all zones in 2026-Q3?",
+        "as_of_utc": "2026-10-27T12:00:00Z",
+        "route_modality": "sql_only",
+        "data_readiness": {
+          "as_of_utc": "2026-10-27T12:00:00Z",
+          "overall_status": "warn_stale",
+          "can_execute_queries": true,
+          "database_sha256": "1d8879df130b7ab94612d60bceb587c5e3b8872dbb1661e1aee2e8ddfd2d00bc",
+          "tables": [
+            {
+              "table_name": "zone_operational_kpis",
+              "status": "ready",
+              "row_count": 4,
+              "latest_refresh_utc": "2026-10-27T09:00:00Z",
+              "staleness_hours": 3.0,
+              "max_null_ratio_observed": 0.0,
+              "null_ratios_by_column": {
+                "zone_id": 0.0,
+                "fiscal_quarter": 0.0,
+                "units_shipped": 0.0,
+                "sla_breach_count": 0.0,
+                "on_time_delivery_pct": 0.0,
+                "mean_repair_hours": 0.0,
+                "automation_coverage_pct": 0.0,
+                "refreshed_at_utc": 0.0
+              },
+              "missing_columns": [],
+              "schema_valid": true,
+              "table_sha256": "0f3ea05be6bb3cc52a28a495bc4fa4cdb9dbdc3a508035e50d663a19716f09ee",
+              "reasons": [
+                "Table zone_operational_kpis passed schema, row-count (4), null-ratio (0.000), and freshness (3.0h <= 24.0h) checks."
+              ]
+            },
+            {
+              "table_name": "zone_financial_kpis",
+              "status": "ready",
+              "row_count": 4,
+              "latest_refresh_utc": "2026-10-27T09:30:00Z",
+              "staleness_hours": 2.5,
+              "max_null_ratio_observed": 0.0,
+              "null_ratios_by_column": {
+                "zone_id": 0.0,
+                "fiscal_quarter": 0.0,
+                "revenue_eur": 0.0,
+                "opex_budget_eur": 0.0,
+                "actual_opex_eur": 0.0,
+                "opex_variance_pct": 0.0,
+                "gross_margin_pct": 0.0,
+                "cloud_ai_spend_eur": 0.0,
+                "refreshed_at_utc": 0.0
+              },
+              "missing_columns": [],
+              "schema_valid": true,
+              "table_sha256": "38a3820b0650737cff946649f2c15b7810a8129dccc2d926d4548c077e396fc2",
+              "reasons": [
+                "Table zone_financial_kpis passed schema, row-count (4), null-ratio (0.000), and freshness (2.5h <= 24.0h) checks."
+              ]
+            },
+            {
+              "table_name": "vendor_contract_sla_ledger",
+              "status": "ready",
+              "row_count": 5,
+              "latest_refresh_utc": "2026-10-27T08:00:00Z",
+              "staleness_hours": 4.0,
+              "max_null_ratio_observed": 0.0,
+              "null_ratios_by_column": {
+                "vendor_id": 0.0,
+                "vendor_name": 0.0,
+                "zone_id": 0.0,
+                "annual_contract_eur": 0.0,
+                "uptime_pct": 0.0,
+                "critical_incidents_q3": 0.0,
+                "penalty_rebate_eur": 0.0,
+                "refreshed_at_utc": 0.0
+              },
+              "missing_columns": [],
+              "schema_valid": true,
+              "table_sha256": "58b38c7c58053ef3609621a1acdb68c42b26ac62ce7c4e4b8a6ba213d9d50399",
+              "reasons": [
+                "Table vendor_contract_sla_ledger passed schema, row-count (5), null-ratio (0.000), and freshness (4.0h <= 24.0h) checks."
+              ]
+            },
+            {
+              "table_name": "legacy_supply_backlog_partition",
+              "status": "blocked_stale",
+              "row_count": 4,
+              "latest_refresh_utc": "2026-10-18T06:00:00Z",
+              "staleness_hours": 222.0,
+              "max_null_ratio_observed": 0.0,
+              "null_ratios_by_column": {
+                "partition_id": 0.0,
+                "zone_id": 0.0,
+                "backordered_skus": 0.0,
+                "blocked_orders_eur": 0.0,
+                "refreshed_at_utc": 0.0
+              },
+              "missing_columns": [],
+              "schema_valid": true,
+              "table_sha256": "6624f4f28c44b330714f4e396cf5461594b599669a0c49e9f152d831814c7720",
+              "reasons": [
+                "Table legacy_supply_backlog_partition refresh (2026-10-18T06:00:00Z) is 222.0 hours old as of 2026-10-27T12:00:00Z, exceeding max_staleness_hours=48.0 (DQA-FRESH-24H)."
+              ]
+            }
+          ],
+          "healthy_tables": [
+            "zone_operational_kpis",
+            "zone_financial_kpis",
+            "vendor_contract_sla_ledger"
+          ],
+          "warning_tables": [],
+          "blocked_tables": [
+            "legacy_supply_backlog_partition"
+          ]
+        },
+        "blocked_by_freshness_gate": false,
+        "blocked_reason": null,
+        "sql_artifact": {
+          "template_id": "tpl_zone_fin_summary",
+          "sql_query": "SELECT COUNT(*) AS zone_count, ROUND(SUM(revenue_eur), 2) AS total_revenue_eur, ROUND(SUM(opex_budget_eur), 2) AS total_opex_budget_eur, ROUND(SUM(actual_opex_eur), 2) AS total_actual_opex_eur, ROUND(SUM(cloud_ai_spend_eur), 2) AS total_cloud_ai_spend_eur, ROUND(AVG(gross_margin_pct), 2) AS avg_gross_margin_pct FROM zone_financial_kpis",
+          "parameters": {},
+          "target_tables": [
+            "zone_financial_kpis"
+          ],
+          "ast_validated_read_only": true,
+          "ast_validation_notes": "Verified read-only SELECT AST over allowlisted table(s): zone_financial_kpis.",
+          "row_count": 1,
+          "rows": [
+            {
+              "zone_count": 4,
+              "total_revenue_eur": 60200000.0,
+              "total_opex_budget_eur": 13600000.0,
+              "total_actual_opex_eur": 14086000.0,
+              "total_cloud_ai_spend_eur": 605000.0,
+              "avg_gross_margin_pct": 60.63
+            }
+          ],
+          "sql_snapshot_sha256": "e664a573e7ea3f9e78d9a68f77e5e5cf657876c1e369f05744288f1fce18abec"
+        },
+        "retrieved_passages": [],
+        "draft_answer": "Across 4 zones, total revenue was EUR 60,200,000, total actual OPEX was EUR 14,086,000 against a budget of EUR 13,600,000, total cloud AI spend was EUR 605,000, and average gross margin was 60.63%.",
+        "numerical_verification": {
+          "all_numbers_verified": true,
+          "total_numeric_tokens": 6,
+          "verified_tokens": 6,
+          "unverified_tokens": [],
+          "numerical_parity_rate": 1.0,
+          "checks": [
+            {
+              "raw_token": "4",
+              "normalized_value": 4.0,
+              "token_kind": "integer",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_fin_summary[0].zone_count",
+              "expected_exact_value": 4.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "EUR 60,200,000",
+              "normalized_value": 60200000.0,
+              "token_kind": "currency",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_fin_summary[0].total_revenue_eur",
+              "expected_exact_value": 60200000.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "EUR 14,086,000",
+              "normalized_value": 14086000.0,
+              "token_kind": "currency",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_fin_summary[0].total_actual_opex_eur",
+              "expected_exact_value": 14086000.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "EUR 13,600,000",
+              "normalized_value": 13600000.0,
+              "token_kind": "currency",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_fin_summary[0].total_opex_budget_eur",
+              "expected_exact_value": 13600000.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "EUR 605,000",
+              "normalized_value": 605000.0,
+              "token_kind": "currency",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_fin_summary[0].total_cloud_ai_spend_eur",
+              "expected_exact_value": 605000.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "60.63%",
+              "normalized_value": 60.63,
+              "token_kind": "percentage",
+              "matched_source": "sql_result",
+              "matched_reference": "tpl_zone_fin_summary[0].avg_gross_margin_pct",
+              "expected_exact_value": 60.63,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            }
+          ]
+        },
+        "composite_evidence_sha256": "f1d848da299521977bfa41f5a010b4b6861b302561b549571a9c823fb8a3103b",
+        "workflow_id": null,
+        "workflow_state": null
+      }
+    },
+    {
+      "case_id": "QRY-023",
+      "label": "RAG Only (Architecture SOP): Build-vs-Adopt Framework ARCH-BVA-01",
+      "question": "According to framework ARCH-BVA-01 and target ARCH-COST-20MS, when should we build a governed hybrid copilot and what is the token reduction target?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "response": {
+        "query_id": "COP-2FE22B171C",
+        "question": "According to framework ARCH-BVA-01 and target ARCH-COST-20MS, when should we build a governed hybrid copilot and what is the token reduction target?",
+        "as_of_utc": "2026-10-27T12:00:00Z",
+        "route_modality": "rag_only",
+        "data_readiness": {
+          "as_of_utc": "2026-10-27T12:00:00Z",
+          "overall_status": "warn_stale",
+          "can_execute_queries": true,
+          "database_sha256": "1d8879df130b7ab94612d60bceb587c5e3b8872dbb1661e1aee2e8ddfd2d00bc",
+          "tables": [
+            {
+              "table_name": "zone_operational_kpis",
+              "status": "ready",
+              "row_count": 4,
+              "latest_refresh_utc": "2026-10-27T09:00:00Z",
+              "staleness_hours": 3.0,
+              "max_null_ratio_observed": 0.0,
+              "null_ratios_by_column": {
+                "zone_id": 0.0,
+                "fiscal_quarter": 0.0,
+                "units_shipped": 0.0,
+                "sla_breach_count": 0.0,
+                "on_time_delivery_pct": 0.0,
+                "mean_repair_hours": 0.0,
+                "automation_coverage_pct": 0.0,
+                "refreshed_at_utc": 0.0
+              },
+              "missing_columns": [],
+              "schema_valid": true,
+              "table_sha256": "0f3ea05be6bb3cc52a28a495bc4fa4cdb9dbdc3a508035e50d663a19716f09ee",
+              "reasons": [
+                "Table zone_operational_kpis passed schema, row-count (4), null-ratio (0.000), and freshness (3.0h <= 24.0h) checks."
+              ]
+            },
+            {
+              "table_name": "zone_financial_kpis",
+              "status": "ready",
+              "row_count": 4,
+              "latest_refresh_utc": "2026-10-27T09:30:00Z",
+              "staleness_hours": 2.5,
+              "max_null_ratio_observed": 0.0,
+              "null_ratios_by_column": {
+                "zone_id": 0.0,
+                "fiscal_quarter": 0.0,
+                "revenue_eur": 0.0,
+                "opex_budget_eur": 0.0,
+                "actual_opex_eur": 0.0,
+                "opex_variance_pct": 0.0,
+                "gross_margin_pct": 0.0,
+                "cloud_ai_spend_eur": 0.0,
+                "refreshed_at_utc": 0.0
+              },
+              "missing_columns": [],
+              "schema_valid": true,
+              "table_sha256": "38a3820b0650737cff946649f2c15b7810a8129dccc2d926d4548c077e396fc2",
+              "reasons": [
+                "Table zone_financial_kpis passed schema, row-count (4), null-ratio (0.000), and freshness (2.5h <= 24.0h) checks."
+              ]
+            },
+            {
+              "table_name": "vendor_contract_sla_ledger",
+              "status": "ready",
+              "row_count": 5,
+              "latest_refresh_utc": "2026-10-27T08:00:00Z",
+              "staleness_hours": 4.0,
+              "max_null_ratio_observed": 0.0,
+              "null_ratios_by_column": {
+                "vendor_id": 0.0,
+                "vendor_name": 0.0,
+                "zone_id": 0.0,
+                "annual_contract_eur": 0.0,
+                "uptime_pct": 0.0,
+                "critical_incidents_q3": 0.0,
+                "penalty_rebate_eur": 0.0,
+                "refreshed_at_utc": 0.0
+              },
+              "missing_columns": [],
+              "schema_valid": true,
+              "table_sha256": "58b38c7c58053ef3609621a1acdb68c42b26ac62ce7c4e4b8a6ba213d9d50399",
+              "reasons": [
+                "Table vendor_contract_sla_ledger passed schema, row-count (5), null-ratio (0.000), and freshness (4.0h <= 24.0h) checks."
+              ]
+            },
+            {
+              "table_name": "legacy_supply_backlog_partition",
+              "status": "blocked_stale",
+              "row_count": 4,
+              "latest_refresh_utc": "2026-10-18T06:00:00Z",
+              "staleness_hours": 222.0,
+              "max_null_ratio_observed": 0.0,
+              "null_ratios_by_column": {
+                "partition_id": 0.0,
+                "zone_id": 0.0,
+                "backordered_skus": 0.0,
+                "blocked_orders_eur": 0.0,
+                "refreshed_at_utc": 0.0
+              },
+              "missing_columns": [],
+              "schema_valid": true,
+              "table_sha256": "6624f4f28c44b330714f4e396cf5461594b599669a0c49e9f152d831814c7720",
+              "reasons": [
+                "Table legacy_supply_backlog_partition refresh (2026-10-18T06:00:00Z) is 222.0 hours old as of 2026-10-27T12:00:00Z, exceeding max_staleness_hours=48.0 (DQA-FRESH-24H)."
+              ]
+            }
+          ],
+          "healthy_tables": [
+            "zone_operational_kpis",
+            "zone_financial_kpis",
+            "vendor_contract_sla_ledger"
+          ],
+          "warning_tables": [],
+          "blocked_tables": [
+            "legacy_supply_backlog_partition"
+          ]
+        },
+        "blocked_by_freshness_gate": false,
+        "blocked_reason": null,
+        "sql_artifact": null,
+        "retrieved_passages": [
+          {
+            "passage_id": "SOP-AI-707#S1",
+            "doc_id": "SOP-AI-707",
+            "title": "Build-vs-Adopt Decision Matrix for Enterprise AI Systems",
+            "category": "architecture_strategy",
+            "section_heading": "1. When to Adopt Commodity SaaS vs Build Governed Hybrid Copilot (ARCH-BVA-01)",
+            "effective_date": "2026-09-20",
+            "text": "Framework ARCH-BVA-01 establishes the enterprise Build-vs-Adopt rule: commodity document search with non-financial data should adopt off-the-shelf SaaS assistants, whereas workflows combining regulated relational KPIs, strict numerical parity (100% grounding), pre-query data freshness gates, and cryptographic HITL audit trails require building a governed hybrid semantic layer.",
+            "sha256_digest": "6f50a8a043ec4f0b2d4cc29fe44a0d5384eeee7844018029133aaf8294f38102",
+            "lexical_bm25_score": 1.0,
+            "semantic_score": 0.85,
+            "hybrid_score": 0.9175,
+            "rank": 1
+          },
+          {
+            "passage_id": "SOP-AI-707#S2",
+            "doc_id": "SOP-AI-707",
+            "title": "Build-vs-Adopt Decision Matrix for Enterprise AI Systems",
+            "category": "architecture_strategy",
+            "section_heading": "2. Token Cost & Latency Efficiency Targets (ARCH-COST-20MS)",
+            "effective_date": "2026-09-20",
+            "text": "Target ARCH-COST-20MS specifies that deterministic template-routed SQL and local hybrid retrieval must execute in under 25 milliseconds on CPU while reducing external LLM token consumption by at least 75.0% compared to unconstrained schema-stuffing prompt-to-SQL agents.",
+            "sha256_digest": "04093f4c27698b1870c21fbe5461a450102667c793c23f93cf9275e42d04615c",
+            "lexical_bm25_score": 1.0,
+            "semantic_score": 0.85,
+            "hybrid_score": 0.9175,
+            "rank": 2
+          }
+        ],
+        "draft_answer": "Framework ARCH-BVA-01 establishes the enterprise Build-vs-Adopt rule: commodity document search with non-financial data should adopt off-the-shelf SaaS assistants, whereas workflows combining regulated relational KPIs, strict numerical parity (100% grounding), pre-query data freshness gates, and cryptographic HITL audit trails require building a governed hybrid semantic layer. [SOP-AI-707#S1] Target ARCH-COST-20MS specifies that deterministic template-routed SQL and local hybrid retrieval must execute in under 25 milliseconds on CPU while reducing external LLM token consumption by at least 75.0% compared to unconstrained schema-stuffing prompt-to-SQL agents. [SOP-AI-707#S2]",
+        "numerical_verification": {
+          "all_numbers_verified": true,
+          "total_numeric_tokens": 3,
+          "verified_tokens": 3,
+          "unverified_tokens": [],
+          "numerical_parity_rate": 1.0,
+          "checks": [
+            {
+              "raw_token": "100%",
+              "normalized_value": 100.0,
+              "token_kind": "percentage",
+              "matched_source": "document_passage",
+              "matched_reference": "SOP-AI-707#S1",
+              "expected_exact_value": 100.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "25",
+              "normalized_value": 25.0,
+              "token_kind": "integer",
+              "matched_source": "document_passage",
+              "matched_reference": "SOP-AI-707#S2",
+              "expected_exact_value": 25.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "75.0%",
+              "normalized_value": 75.0,
+              "token_kind": "percentage",
+              "matched_source": "document_passage",
+              "matched_reference": "SOP-AI-707#S2",
+              "expected_exact_value": 75.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            }
+          ]
+        },
+        "composite_evidence_sha256": "a52e85b903d0ecf8e05bf9a688b14ec9332803561f69c3841884faadf076022d",
+        "workflow_id": null,
+        "workflow_state": null
+      }
+    },
+    {
+      "case_id": "QRY-035",
+      "label": "Freshness Gate Block: Stale Legacy Supply Backlog Partition (222.0h > 48.0h)",
+      "question": "How many backordered SKUs and blocked orders in EUR are in legacy_supply_backlog_partition for Zone_US_East_Robotics?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "response": {
+        "query_id": "COP-487C975E03",
+        "question": "How many backordered SKUs and blocked orders in EUR are in legacy_supply_backlog_partition for Zone_US_East_Robotics?",
+        "as_of_utc": "2026-10-27T12:00:00Z",
+        "route_modality": "blocked_data_quality",
+        "data_readiness": {
+          "as_of_utc": "2026-10-27T12:00:00Z",
+          "overall_status": "warn_stale",
+          "can_execute_queries": true,
+          "database_sha256": "1d8879df130b7ab94612d60bceb587c5e3b8872dbb1661e1aee2e8ddfd2d00bc",
+          "tables": [
+            {
+              "table_name": "zone_operational_kpis",
+              "status": "ready",
+              "row_count": 4,
+              "latest_refresh_utc": "2026-10-27T09:00:00Z",
+              "staleness_hours": 3.0,
+              "max_null_ratio_observed": 0.0,
+              "null_ratios_by_column": {
+                "zone_id": 0.0,
+                "fiscal_quarter": 0.0,
+                "units_shipped": 0.0,
+                "sla_breach_count": 0.0,
+                "on_time_delivery_pct": 0.0,
+                "mean_repair_hours": 0.0,
+                "automation_coverage_pct": 0.0,
+                "refreshed_at_utc": 0.0
+              },
+              "missing_columns": [],
+              "schema_valid": true,
+              "table_sha256": "0f3ea05be6bb3cc52a28a495bc4fa4cdb9dbdc3a508035e50d663a19716f09ee",
+              "reasons": [
+                "Table zone_operational_kpis passed schema, row-count (4), null-ratio (0.000), and freshness (3.0h <= 24.0h) checks."
+              ]
+            },
+            {
+              "table_name": "zone_financial_kpis",
+              "status": "ready",
+              "row_count": 4,
+              "latest_refresh_utc": "2026-10-27T09:30:00Z",
+              "staleness_hours": 2.5,
+              "max_null_ratio_observed": 0.0,
+              "null_ratios_by_column": {
+                "zone_id": 0.0,
+                "fiscal_quarter": 0.0,
+                "revenue_eur": 0.0,
+                "opex_budget_eur": 0.0,
+                "actual_opex_eur": 0.0,
+                "opex_variance_pct": 0.0,
+                "gross_margin_pct": 0.0,
+                "cloud_ai_spend_eur": 0.0,
+                "refreshed_at_utc": 0.0
+              },
+              "missing_columns": [],
+              "schema_valid": true,
+              "table_sha256": "38a3820b0650737cff946649f2c15b7810a8129dccc2d926d4548c077e396fc2",
+              "reasons": [
+                "Table zone_financial_kpis passed schema, row-count (4), null-ratio (0.000), and freshness (2.5h <= 24.0h) checks."
+              ]
+            },
+            {
+              "table_name": "vendor_contract_sla_ledger",
+              "status": "ready",
+              "row_count": 5,
+              "latest_refresh_utc": "2026-10-27T08:00:00Z",
+              "staleness_hours": 4.0,
+              "max_null_ratio_observed": 0.0,
+              "null_ratios_by_column": {
+                "vendor_id": 0.0,
+                "vendor_name": 0.0,
+                "zone_id": 0.0,
+                "annual_contract_eur": 0.0,
+                "uptime_pct": 0.0,
+                "critical_incidents_q3": 0.0,
+                "penalty_rebate_eur": 0.0,
+                "refreshed_at_utc": 0.0
+              },
+              "missing_columns": [],
+              "schema_valid": true,
+              "table_sha256": "58b38c7c58053ef3609621a1acdb68c42b26ac62ce7c4e4b8a6ba213d9d50399",
+              "reasons": [
+                "Table vendor_contract_sla_ledger passed schema, row-count (5), null-ratio (0.000), and freshness (4.0h <= 24.0h) checks."
+              ]
+            },
+            {
+              "table_name": "legacy_supply_backlog_partition",
+              "status": "blocked_stale",
+              "row_count": 4,
+              "latest_refresh_utc": "2026-10-18T06:00:00Z",
+              "staleness_hours": 222.0,
+              "max_null_ratio_observed": 0.0,
+              "null_ratios_by_column": {
+                "partition_id": 0.0,
+                "zone_id": 0.0,
+                "backordered_skus": 0.0,
+                "blocked_orders_eur": 0.0,
+                "refreshed_at_utc": 0.0
+              },
+              "missing_columns": [],
+              "schema_valid": true,
+              "table_sha256": "6624f4f28c44b330714f4e396cf5461594b599669a0c49e9f152d831814c7720",
+              "reasons": [
+                "Table legacy_supply_backlog_partition refresh (2026-10-18T06:00:00Z) is 222.0 hours old as of 2026-10-27T12:00:00Z, exceeding max_staleness_hours=48.0 (DQA-FRESH-24H)."
+              ]
+            }
+          ],
+          "healthy_tables": [
+            "zone_operational_kpis",
+            "zone_financial_kpis",
+            "vendor_contract_sla_ledger"
+          ],
+          "warning_tables": [],
+          "blocked_tables": [
+            "legacy_supply_backlog_partition"
+          ]
+        },
+        "blocked_by_freshness_gate": true,
+        "blocked_reason": "BLOCKED BY DATA QUALITY GATE: Table legacy_supply_backlog_partition refresh (2026-10-18T06:00:00Z) is 222.0 hours old as of 2026-10-27T12:00:00Z, exceeding max_staleness_hours=48.0 (DQA-FRESH-24H).",
+        "sql_artifact": null,
+        "retrieved_passages": [
+          {
+            "passage_id": "SOP-DQA-404#S1",
+            "doc_id": "SOP-DQA-404",
+            "title": "Relational Data Warehouse Freshness & Null-Ratio Gate",
+            "category": "data_quality",
+            "section_heading": "1. Pre-Query Freshness SLA & Stale Partition Blocking (DQA-FRESH-24H)",
+            "effective_date": "2026-09-01",
+            "text": "Standard DQA-FRESH-24H requires the Data Quality Gate to inspect table refresh timestamps (refreshed_at_utc) prior to executing any SQL analytics or hybrid RAG synthesis. Operational and financial KPI tables have a warning threshold of 12.0 hours and a hard blocking ceiling of 24.0 hours; legacy supply backlog partitions have a hard blocking ceiling of 48.0 hours. Any query targeting a table in blocked_stale status must be rejected before SQL execution.",
+            "sha256_digest": "82e6bbea193d805627c3b26eb8f82225da79054265c25f4ee7a28885c46d285a",
+            "lexical_bm25_score": 1.0,
+            "semantic_score": 1.0,
+            "hybrid_score": 1.0,
+            "rank": 1
+          }
+        ],
+        "draft_answer": "BLOCKED BY DATA QUALITY GATE: Table legacy_supply_backlog_partition refresh (2026-10-18T06:00:00Z) is 222.0 hours old as of 2026-10-27T12:00:00Z, exceeding max_staleness_hours=48.0 (DQA-FRESH-24H). [SOP-DQA-404#S1]",
+        "numerical_verification": {
+          "all_numbers_verified": true,
+          "total_numeric_tokens": 2,
+          "verified_tokens": 2,
+          "unverified_tokens": [],
+          "numerical_parity_rate": 1.0,
+          "checks": [
+            {
+              "raw_token": "222.0",
+              "normalized_value": 222.0,
+              "token_kind": "decimal",
+              "matched_source": "readiness_report",
+              "matched_reference": "legacy_supply_backlog_partition.staleness_hours",
+              "expected_exact_value": 222.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            },
+            {
+              "raw_token": "48.0",
+              "normalized_value": 48.0,
+              "token_kind": "decimal",
+              "matched_source": "document_passage",
+              "matched_reference": "SOP-DQA-404#S1",
+              "expected_exact_value": 48.0,
+              "absolute_diff": 0.0,
+              "is_verified": true
+            }
+          ]
+        },
+        "composite_evidence_sha256": "37187f937d2c6b8a902af1d5c7b3878aff92cb0c3684209df4ddffa4fcc35213",
+        "workflow_id": null,
+        "workflow_state": null
+      }
+    }
+  ],
+  "workflows_seed": [
+    {
+      "workflow_id": "WF-636BFB6542",
+      "question": "Which zone triggered the FIN-CAP-8PCT CFO Discretionary Spend Freeze in 2026-Q3 based on its OPEX variance percentage, and which zone requires a VP Finance memo?",
+      "route_modality": "hybrid_multi_source",
+      "draft_answer": "SQL KPI Evidence: Zone_US_East_Robotics: EUR 11,600,000 revenue, EUR 3,192,000 actual OPEX, 14.0% OPEX variance, 54.8% gross margin, EUR 210,000 cloud AI spend; Zone_EMEA_Imaging: EUR 14,250,000 revenue, EUR 3,344,000 actual OPEX, 4.5% OPEX variance, 61.5% gross margin, EUR 118,000 cloud AI spend; Zone_APAC_LabSystems: EUR 15,450,000 revenue, EUR 3,570,000 actual OPEX, 2.0% OPEX variance, 62.0% gross margin, EUR 132,000 cloud AI spend; Zone_DACH_Diagnostics: EUR 18,900,000 revenue, EUR 3,980,000 actual OPEX, -2.93% OPEX variance, 64.2% gross margin, EUR 145,000 cloud AI spend. Policy Governance Evidence: Under Financial Governance Policy FIN-CAP-8PCT, any operating zone whose quarterly OPEX variance (opex_variance_pct) exceeds 8.0% above budget triggers a mandatory CFO Discretionary Spend Freeze and requires Human-in-the-Loop (HITL) executive approval before releasing new contractor or cloud compute requisitions. Variances between 3.0% and 8.0% require a VP Finance variance memo. [SOP-FIN-202#S1] Directive FIN-GM-58 requires operating zones to sustain a minimum quarterly gross margin of 58.0% and caps quarterly cloud AI inference and training expenditure at EUR 180,000 per zone unless a high-volume workload waiver is countersigned. [SOP-FIN-202#S2]",
+      "sql_template_id": "tpl_zone_fin_all",
+      "sql_snapshot_sha256": "739814efb0abb6637ee9e32d9edc745b453f0d7fd999ce1ba1bded71c4bbf3b0",
+      "passage_ids": [
+        "SOP-FIN-202#S1",
+        "SOP-FIN-202#S2"
+      ],
+      "passage_digests": {
+        "SOP-FIN-202#S1": "d4a81799f7b31c8a269ea65647c506461f55df0a261fc98f4db9114ada2eda38",
+        "SOP-FIN-202#S2": "df33f1e11d472b4eb9aeb1f44d232304e58b2ff97dc54f96f2e76a6680e080b4"
+      },
+      "answer_sha256": "e8379552da1b009428a0bcde1f956be7fa5d7b7085b8f694f465969225447bf3",
+      "composite_evidence_sha256": "ebc97565e9d53ebec244316ae902d1caa171f78a97a7dff40b24f9fac451ec4f",
+      "numerical_parity_rate": 1.0,
+      "state": "PENDING_APPROVAL",
+      "reviewer_id": null,
+      "reviewer_notes": null,
+      "created_at_utc": "2026-10-27T14:35:55Z",
+      "updated_at_utc": "2026-10-27T14:35:55Z",
+      "audit_trail": [
+        {
+          "timestamp_utc": "2026-10-27T14:35:55Z",
+          "from_state": "INIT",
+          "to_state": "DRAFT",
+          "actor": "system:hybrid-data-copilot",
+          "note": "Created digest-bound decision-support draft.",
+          "bound_evidence_sha256": "ebc97565e9d53ebec244316ae902d1caa171f78a97a7dff40b24f9fac451ec4f"
+        },
+        {
+          "timestamp_utc": "2026-10-27T14:35:55Z",
+          "from_state": "DRAFT",
+          "to_state": "PENDING_APPROVAL",
+          "actor": "system:auto-submit",
+          "note": "Submitted to PENDING_APPROVAL queue for executive review.",
+          "bound_evidence_sha256": "ebc97565e9d53ebec244316ae902d1caa171f78a97a7dff40b24f9fac451ec4f"
+        }
+      ]
+    }
+  ]
+}

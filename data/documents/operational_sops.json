@@ -1,0 +1,162 @@
+[
+  {
+    "passage_id": "SOP-OPS-101#S1",
+    "doc_id": "SOP-OPS-101",
+    "title": "Zone On-Time Delivery SLA & Escalation Thresholds",
+    "category": "operations_governance",
+    "section_heading": "1. Minimum On-Time Delivery Target & Breach Cap (OPS-SLA-95)",
+    "effective_date": "2026-08-01",
+    "text": "Under Operational Policy OPS-SLA-95, every manufacturing and clinical zone must maintain a minimum quarterly On-Time Delivery (OTD) rate of 95.0% and no more than 5 quarterly SLA breaches. Any zone falling below 95.0% OTD or exceeding 5 SLA breaches is classified as Red-Tier Non-Compliant and must submit a Root-Cause Corrective Action Plan (CAPA) within 5 business days.",
+    "sha256_digest": "6869dd3f969b65329e17f6de3f6b63e9f218bd9926775d143082779e2a440616"
+  },
+  {
+    "passage_id": "SOP-OPS-101#S2",
+    "doc_id": "SOP-OPS-101",
+    "title": "Zone On-Time Delivery SLA & Escalation Thresholds",
+    "category": "operations_governance",
+    "section_heading": "2. Mean Time To Repair (MTTR) Ceiling & Automation Target (OPS-MTTR-6H)",
+    "effective_date": "2026-08-01",
+    "text": "Control OPS-MTTR-6H establishes a maximum Mean Time To Repair (mean_repair_hours) ceiling of 6.0 hours for automated diagnostic and robotics lines, alongside a target workflow automation coverage of at least 80.0%. Zones exceeding 6.0 repair hours require an immediate field-engineering dispatch audit.",
+    "sha256_digest": "e6459b17c61393d1c25bf26d56e98d8312591233bcb1a64a4734596b78b2c9ef"
+  },
+  {
+    "passage_id": "SOP-FIN-202#S1",
+    "doc_id": "SOP-FIN-202",
+    "title": "Quarterly OPEX Variance Cap & CFO Freeze Protocol",
+    "category": "financial_governance",
+    "section_heading": "1. OPEX Variance Thresholds & Discretionary Spend Freeze (FIN-CAP-8PCT)",
+    "effective_date": "2026-08-15",
+    "text": "Under Financial Governance Policy FIN-CAP-8PCT, any operating zone whose quarterly OPEX variance (opex_variance_pct) exceeds 8.0% above budget triggers a mandatory CFO Discretionary Spend Freeze and requires Human-in-the-Loop (HITL) executive approval before releasing new contractor or cloud compute requisitions. Variances between 3.0% and 8.0% require a VP Finance variance memo.",
+    "sha256_digest": "d4a81799f7b31c8a269ea65647c506461f55df0a261fc98f4db9114ada2eda38"
+  },
+  {
+    "passage_id": "SOP-FIN-202#S2",
+    "doc_id": "SOP-FIN-202",
+    "title": "Quarterly OPEX Variance Cap & CFO Freeze Protocol",
+    "category": "financial_governance",
+    "section_heading": "2. Minimum Gross Margin & Cloud AI Spend Allocation (FIN-GM-58)",
+    "effective_date": "2026-08-15",
+    "text": "Directive FIN-GM-58 requires operating zones to sustain a minimum quarterly gross margin of 58.0% and caps quarterly cloud AI inference and training expenditure at EUR 180,000 per zone unless a high-volume workload waiver is countersigned.",
+    "sha256_digest": "df33f1e11d472b4eb9aeb1f44d232304e58b2ff97dc54f96f2e76a6680e080b4"
+  },
+  {
+    "passage_id": "SOP-VND-303#S1",
+    "doc_id": "SOP-VND-303",
+    "title": "Tier-1 Supplier Uptime SLA & Penalty Rebate Schedule",
+    "category": "vendor_procurement",
+    "section_heading": "1. Minimum 99.5% Supplier Uptime & Penalty Tiers (VND-SLA-995)",
+    "effective_date": "2026-07-20",
+    "text": "Clause VND-SLA-995 mandates a minimum 99.5% quarterly availability (uptime_pct) across all Tier-1 production suppliers. Suppliers recording uptime between 99.0% and 99.49% incur a 5.0% annual contract penalty rebate. Suppliers falling below 99.0% uptime or recording 3 or more critical incidents in a quarter incur a 12.0% annual contract penalty rebate and formal vendor probation.",
+    "sha256_digest": "febde98ce298212931783e5f3deb315903daf3fa2ef07cfbc721bee07c414ac5"
+  },
+  {
+    "passage_id": "SOP-VND-303#S2",
+    "doc_id": "SOP-VND-303",
+    "title": "Tier-1 Supplier Uptime SLA & Penalty Rebate Schedule",
+    "category": "vendor_procurement",
+    "section_heading": "2. Executive Procurement Board Review Threshold (VND-BOARD-500K)",
+    "effective_date": "2026-07-20",
+    "text": "Under Schedule VND-BOARD-500K, any Tier-1 supplier contract with an annual contract value (annual_contract_eur) of EUR 500,000 or higher requires semi-annual resilience auditing and dual sign-off from the VP of Procurement and Chief Information Security Officer.",
+    "sha256_digest": "fdcfe6133a8d6311a7c3be94f98bd681c3c35163c03aab4d9c213b187f2ce478"
+  },
+  {
+    "passage_id": "SOP-DQA-404#S1",
+    "doc_id": "SOP-DQA-404",
+    "title": "Relational Data Warehouse Freshness & Null-Ratio Gate",
+    "category": "data_quality",
+    "section_heading": "1. Pre-Query Freshness SLA & Stale Partition Blocking (DQA-FRESH-24H)",
+    "effective_date": "2026-09-01",
+    "text": "Standard DQA-FRESH-24H requires the Data Quality Gate to inspect table refresh timestamps (refreshed_at_utc) prior to executing any SQL analytics or hybrid RAG synthesis. Operational and financial KPI tables have a warning threshold of 12.0 hours and a hard blocking ceiling of 24.0 hours; legacy supply backlog partitions have a hard blocking ceiling of 48.0 hours. Any query targeting a table in blocked_stale status must be rejected before SQL execution.",
+    "sha256_digest": "82e6bbea193d805627c3b26eb8f82225da79054265c25f4ee7a28885c46d285a"
+  },
+  {
+    "passage_id": "SOP-DQA-404#S2",
+    "doc_id": "SOP-DQA-404",
+    "title": "Relational Data Warehouse Freshness & Null-Ratio Gate",
+    "category": "data_quality",
+    "section_heading": "2. Schema Contract & Column Null-Ratio Bounds (DQA-NULL-5PCT)",
+    "effective_date": "2026-09-01",
+    "text": "Control DQA-NULL-5PCT enforces strict relational schema contracts: every required column must exist, table row counts must fall within [min_rows, max_rows], and the maximum observed column null ratio must not exceed 5.0% (0.05). Violations transition the table to blocked_contract status.",
+    "sha256_digest": "407da0240b70cabc98a915fa686797adf6c6be4b64e96fba1adf48688c4966ef"
+  },
+  {
+    "passage_id": "SOP-SQL-505#S1",
+    "doc_id": "SOP-SQL-505",
+    "title": "Read-Only Parameterized SQL & AST Security Policy",
+    "category": "sql_security",
+    "section_heading": "1. AST Read-Only Validation & Mutating Keyword Ban (SQL-AST-RO)",
+    "effective_date": "2026-09-10",
+    "text": "Security Policy SQL-AST-RO prohibits unconstrained free-text LLM SQL execution. Every generated query must map to an approved parameterized SELECT template, bind arguments exclusively via SQLite parameter placeholders (:param), and pass AST token inspection blocking INSERT, UPDATE, DELETE, DROP, ALTER, ATTACH, PRAGMA, and multi-statement semicolons.",
+    "sha256_digest": "8ced0e89b415597211d22e601996d0ab822c910dc013f065ecff3a8a41442469"
+  },
+  {
+    "passage_id": "SOP-SQL-505#S2",
+    "doc_id": "SOP-SQL-505",
+    "title": "Read-Only Parameterized SQL & AST Security Policy",
+    "category": "sql_security",
+    "section_heading": "2. Deterministic Numerical Grounding Guardrail (NUM-PARITY-100)",
+    "effective_date": "2026-09-10",
+    "text": "Under Control NUM-PARITY-100, every numeric, currency, or percentage token present in a drafted executive summary must be extracted and verified against the exact SQL result set or retrieved policy passage within a relative tolerance of 1e-2 (0.01). Any unverified number blocks automatic release.",
+    "sha256_digest": "b5e68a07628c7008e5d8ee036cbaed401127b17281d8e24abd0d9b250fffbe39"
+  },
+  {
+    "passage_id": "SOP-HITL-606#S1",
+    "doc_id": "SOP-HITL-606",
+    "title": "Digest-Bound Executive Sign-Off & Snapshot Invalidation",
+    "category": "hitl_governance",
+    "section_heading": "1. Four-State Approval Lifecycle (HITL-STATE-4)",
+    "effective_date": "2026-09-15",
+    "text": "Standard HITL-STATE-4 governs decision-support briefs through a deterministic state machine: DRAFT -> PENDING_APPROVAL -> APPROVED or REJECTED. Transitions are logged in an append-only SQLite audit trail with actor identity, UTC timestamp, and bound SHA-256 evidence digest.",
+    "sha256_digest": "2069e3095f857a48415c4b1c3a9addded95593879f3b2e4828b20e0a563613bf"
+  },
+  {
+    "passage_id": "SOP-HITL-606#S2",
+    "doc_id": "SOP-HITL-606",
+    "title": "Digest-Bound Executive Sign-Off & Snapshot Invalidation",
+    "category": "hitl_governance",
+    "section_heading": "2. Composite Evidence SHA-256 Binding & Drift Invalidation (HITL-DRIFT-SHA)",
+    "effective_date": "2026-09-15",
+    "text": "Control HITL-DRIFT-SHA binds every human approval to SHA256(normalized_question || sql_snapshot_sha256 || sorted_passage_sha256s || answer_sha256). If an underlying SQL table refresh or SOP revision changes the snapshot hash, digest verification automatically transitions the workflow from APPROVED to REJECTED with reason invalidated_by_data_drift.",
+    "sha256_digest": "df6a44baed3605178a6ed358e91e24a535deede7ad9589e0b52513be1d2a9d65"
+  },
+  {
+    "passage_id": "SOP-AI-707#S1",
+    "doc_id": "SOP-AI-707",
+    "title": "Build-vs-Adopt Decision Matrix for Enterprise AI Systems",
+    "category": "architecture_strategy",
+    "section_heading": "1. When to Adopt Commodity SaaS vs Build Governed Hybrid Copilot (ARCH-BVA-01)",
+    "effective_date": "2026-09-20",
+    "text": "Framework ARCH-BVA-01 establishes the enterprise Build-vs-Adopt rule: commodity document search with non-financial data should adopt off-the-shelf SaaS assistants, whereas workflows combining regulated relational KPIs, strict numerical parity (100% grounding), pre-query data freshness gates, and cryptographic HITL audit trails require building a governed hybrid semantic layer.",
+    "sha256_digest": "6f50a8a043ec4f0b2d4cc29fe44a0d5384eeee7844018029133aaf8294f38102"
+  },
+  {
+    "passage_id": "SOP-AI-707#S2",
+    "doc_id": "SOP-AI-707",
+    "title": "Build-vs-Adopt Decision Matrix for Enterprise AI Systems",
+    "category": "architecture_strategy",
+    "section_heading": "2. Token Cost & Latency Efficiency Targets (ARCH-COST-20MS)",
+    "effective_date": "2026-09-20",
+    "text": "Target ARCH-COST-20MS specifies that deterministic template-routed SQL and local hybrid retrieval must execute in under 25 milliseconds on CPU while reducing external LLM token consumption by at least 75.0% compared to unconstrained schema-stuffing prompt-to-SQL agents.",
+    "sha256_digest": "04093f4c27698b1870c21fbe5461a450102667c793c23f93cf9275e42d04615c"
+  },
+  {
+    "passage_id": "SOP-GDPR-808#S1",
+    "doc_id": "SOP-GDPR-808",
+    "title": "Cross-Region Telemetry Retention & Anonymization Standard",
+    "category": "privacy_gdpr",
+    "section_heading": "1. Sovereign EU Warehouse Residency & 90-Day Audit Retention (GDPR-WH-90D)",
+    "effective_date": "2026-07-15",
+    "text": "Under Policy GDPR-WH-90D, all European operational and financial warehouse snapshots must reside in eu-central-1 (Frankfurt) with query audit logs retained for 90 calendar days and employee operator identifiers pseudonymized before analytics export.",
+    "sha256_digest": "c1ff0d0e6500070d6ad4cfbc92293226c997b9f0cb367d61bb3be9f08ddbddc9"
+  },
+  {
+    "passage_id": "SOP-GDPR-808#S2",
+    "doc_id": "SOP-GDPR-808",
+    "title": "Cross-Region Telemetry Retention & Anonymization Standard",
+    "category": "privacy_gdpr",
+    "section_heading": "2. Right to Erasure & Snapshot Purge SLA (GDPR-PURGE-14D)",
+    "effective_date": "2026-07-15",
+    "text": "Control GDPR-PURGE-14D requires purging revoked personal identifiers across relational tables, FTS5 search indices, and cached workflow snapshots within 14 calendar days of a verified GDPR Article 17 request.",
+    "sha256_digest": "b3e2b054b715f9256d50e57c1f7632983356ea00bdd53c05b77b17553c69171e"
+  }
+]

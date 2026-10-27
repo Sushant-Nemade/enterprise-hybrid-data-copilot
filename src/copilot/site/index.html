@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enterprise Hybrid Data Copilot — Decision-Support Review Console</title>
+<meta name="description" content="Principal Applied AI &amp; Analytics Engineering reference bridging structured relational KPIs (SQLite) and unstructured operational documents with automated data-freshness gates, AST-validated read-only semantic SQL, deterministic numerical verification, and SHA-256 digest-bound HITL workflow approvals.">
+<style>
+  :root {
+    --bg: #f4f3ef;
+    --surface: #ffffff;
+    --ink: #0f172a;
+    --mute: #475569;
+    --border: #cbd5e1;
+    --border-strong: #0f172a;
+    --amber: #f2c230;
+    --signal: #1d4ed8;
+    --ok: #15803d;
+    --ok-soft: #dcfce7;
+    --warn: #b45309;
+    --warn-soft: #fef3c7;
+    --danger: #b91c1c;
+    --danger-soft: #fee2e2;
+    --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.55; }
+  .rail { position: fixed; top: 0; left: 0; width: 10px; height: 100%; background: var(--amber); z-index: 20; }
+  .container { max-width: 1180px; margin: 0 auto; padding: 28px 24px 64px 32px; }
+  header.hero { border-bottom: 2px solid var(--border-strong); padding-bottom: 22px; margin-bottom: 24px; }
+  .eyebrow { font-family: var(--mono); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: #fff; padding: 4px 10px; }
+  .eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); }
+  h1 { font-size: clamp(24px, 3.6vw, 38px); line-height: 1.15; margin: 14px 0 10px; letter-spacing: -0.02em; }
+  .subtitle { color: var(--mute); max-width: 84ch; margin: 0 0 16px; font-size: 15px; }
+  .meta-strip { display: flex; flex-wrap: wrap; gap: 10px 16px; font-family: var(--mono); font-size: 12px; color: var(--mute); }
+  .badge { display: inline-flex; align-items: center; gap: 6px; padding: 3px 9px; border: 1px solid var(--border-strong); background: var(--surface); font-family: var(--mono); font-size: 11.5px; font-weight: 600; color: var(--ink); }
+  .badge.ok { background: var(--ok-soft); border-color: var(--ok); color: var(--ok); }
+  .badge.warn { background: var(--warn-soft); border-color: var(--warn); color: var(--warn); }
+  .badge.danger { background: var(--danger-soft); border-color: var(--danger); color: var(--danger); }
+
+  nav.tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; border-bottom: 2px solid var(--border-strong); padding-bottom: 12px; }
+  .tab-btn { font-family: var(--mono); font-size: 13px; font-weight: 700; padding: 8px 14px; border: 2px solid var(--border-strong); background: var(--surface); color: var(--ink); cursor: pointer; }
+  .tab-btn:hover { background: var(--amber); }
+  .tab-btn.active { background: var(--ink); color: #fff; }
+
+  .panel { display: none; }
+  .panel.active { display: block; }
+
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 24px; }
+  .kpi-card { background: var(--surface); border: 2px solid var(--border-strong); padding: 14px 16px; }
+  .kpi-label { font-family: var(--mono); font-size: 11.5px; color: var(--mute); text-transform: uppercase; }
+  .kpi-value { font-family: var(--mono); font-size: 26px; font-weight: 800; margin: 4px 0; color: var(--ink); }
+  .kpi-delta { font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--ok); }
+
+  .card { background: var(--surface); border: 2px solid var(--border-strong); padding: 18px 20px; margin-bottom: 20px; }
+  .card h2 { font-size: 18px; margin: 0 0 6px; }
+  .card h3 { font-size: 15px; margin: 0 0 10px; font-family: var(--mono); }
+  .card p.desc { color: var(--mute); font-size: 13.5px; margin: 0 0 14px; }
+
+  .table-wrap { width: 100%; overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-family: var(--mono); font-size: 12.5px; }
+  th, td { border: 1px solid var(--border); padding: 9px 10px; text-align: left; vertical-align: top; }
+  th { background: var(--ink); color: #fff; font-weight: 700; white-space: nowrap; }
+  tr.highlight-row { background: #fef9c3; font-weight: 700; }
+
+  .controls-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-bottom: 16px; }
+  label.field { display: flex; flex-direction: column; gap: 5px; font-family: var(--mono); font-size: 12px; font-weight: 700; }
+  select { font-family: var(--mono); font-size: 13px; padding: 8px 10px; border: 2px solid var(--border-strong); background: #fff; color: var(--ink); width: 100%; }
+  button.action-btn { font-family: var(--mono); font-size: 13px; font-weight: 700; padding: 9px 16px; border: 2px solid var(--border-strong); background: var(--amber); color: var(--ink); cursor: pointer; }
+  button.action-btn:hover { background: var(--ink); color: #fff; }
+  button.action-btn.secondary { background: #fff; }
+
+  .sub-card { border: 1px solid var(--border-strong); padding: 12px 14px; margin-bottom: 10px; background: #fafafa; }
+  .sub-header { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; margin-bottom: 6px; font-family: var(--mono); font-size: 12px; font-weight: 700; }
+  .hash-box { font-family: var(--mono); font-size: 11.5px; background: #0f172a; color: #f8fafc; padding: 10px 12px; overflow-wrap: anywhere; word-break: break-all; margin-top: 8px; border-left: 4px solid var(--amber); }
+
+  footer { margin-top: 40px; padding-top: 18px; border-top: 2px solid var(--border-strong); font-family: var(--mono); font-size: 12px; color: var(--mute); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+  footer a { color: var(--ink); font-weight: 700; }
+
+  @media (max-width: 640px) {
+    .container { padding: 18px 14px 48px 20px; }
+    nav.tabs { flex-direction: column; }
+    .tab-btn { width: 100%; text-align: left; }
+  }
+</style>
+</head>
+<body>
+<div class="rail" aria-hidden="true"></div>
+<div class="container">
+  <header class="hero">
+    <div class="eyebrow"><span class="dot"></span>Principal Applied AI &amp; Analytics Engineering Reference</div>
+    <h1>Enterprise Hybrid Data Copilot — Decision-Support Review Console</h1>
+    <p class="subtitle">
+      Inspectable Python/FastAPI and TypeScript reference system bridging structured relational KPIs (SQLite) and unstructured operational SOPs
+      with pre-query data-freshness gates, AST-validated read-only semantic SQL templates, deterministic numerical grounding verification, and SHA-256 digest-bound HITL workflow approvals.
+    </p>
+    <div class="meta-strip">
+      <span class="badge ok" id="runtime-badge">Mode: Verifying Console...</span>
+      <span class="badge">Warehouse: 4 Relational KPI Tables</span>
+      <span class="badge">SOP Corpus: 8 Docs / 16 Passages</span>
+      <span class="badge">Benchmark: 40 Decision-Support Queries</span>
+      <span class="badge ok">Numerical Parity Rate: 1.0000</span>
+      <a class="badge" href="https://github.com/Sushant-Nemade/enterprise-hybrid-data-copilot">GitHub Repository</a>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Console sections">
+    <button class="tab-btn active" data-tab="benchmark" role="tab" aria-selected="true">1. Build-vs-Adopt Benchmark (40 Queries)</button>
+    <button class="tab-btn" data-tab="router" role="tab" aria-selected="false">2. Semantic SQL + RAG Router &amp; Numeric Verifier</button>
+    <button class="tab-btn" data-tab="freshness" role="tab" aria-selected="false">3. Data Freshness &amp; Quality Gate</button>
+    <button class="tab-btn" data-tab="workflow" role="tab" aria-selected="false">4. Digest-Bound HITL Approval State Machine</button>
+  </nav>
+
+  <!-- TAB 1: BUILD-VS-ADOPT BENCHMARK -->
+  <section class="panel active" id="panel-benchmark">
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">SQL Execution Accuracy</div>
+        <div class="kpi-value">1.0000</div>
+        <div class="kpi-delta">+0.2941 vs Prompt-to-SQL | +1.0000 vs Text RAG</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Numerical Parity Rate</div>
+        <div class="kpi-value">1.0000</div>
+        <div class="kpi-delta">+0.4900 vs Prompt-to-SQL (0.5100)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Freshness Gate Precision</div>
+        <div class="kpi-value">1.0000</div>
+        <div class="kpi-delta">6/6 Stale Partition Queries Blocked</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Token Cost Efficiency</div>
+        <div class="kpi-value">-83.24%</div>
+        <div class="kpi-delta">310 vs 1,850 tokens/query ($0.775 vs $4.625/1k)</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Build-vs-Adopt 40-Query Evaluation Harness (<code>artifacts/copilot_benchmark.json</code>)</h2>
+      <p class="desc">
+        Evaluated across 14 relational SQL KPI queries, 10 unstructured SOP policy queries, 10 multi-source SQL+RAG compliance synthesis queries, and 6 stale-partition data-freshness gate queries.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Architecture</th>
+              <th>SQL Exec Accuracy</th>
+              <th>Numerical Parity Rate</th>
+              <th>Freshness Gate Precision</th>
+              <th>Routing Accuracy</th>
+              <th>Mean Latency (ms)</th>
+              <th>Est. Tokens / Query</th>
+              <th>Est. Cost / 1k Queries</th>
+            </tr>
+          </thead>
+          <tbody id="benchmark-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Build-vs-Adopt Executive Recommendation &amp; Cryptographic Provenance</h2>
+      <div id="bva-summary-box"></div>
+    </div>
+  </section>
+
+  <!-- TAB 2: SEMANTIC SQL + RAG ROUTER & NUMERICAL VERIFIER -->
+  <section class="panel" id="panel-router">
+    <div class="card">
+      <h2>Interactive Semantic SQL + Unstructured SOP Router &amp; Numerical Verifier</h2>
+      <p class="desc">
+        Select an operational or financial stakeholder question below to inspect its pre-query freshness check, AST-validated read-only SQL execution plan, retrieved SOP passages, and token-by-token numerical parity verification.
+      </p>
+      <div class="controls-grid">
+        <label class="field">
+          <span>Decision-Support Stakeholder Question</span>
+          <select id="router-scenario-select"></select>
+        </label>
+      </div>
+      <div id="router-output"></div>
+    </div>
+  </section>
+
+  <!-- TAB 3: DATA FRESHNESS & QUALITY GATE -->
+  <section class="panel" id="panel-freshness">
+    <div class="card">
+      <h2>Relational Data Warehouse Freshness &amp; Contract Gate (<code>DQA-FRESH-24H</code> / <code>DQA-NULL-5PCT</code>)</h2>
+      <p class="desc">
+        Before executing any SQL query or hybrid synthesis, <code>src/copilot/data_quality.py</code> inspects every table's schema columns, row-count bounds, column null ratios, and refresh timestamp age. Switch evaluation clock to observe partition blocking.
+      </p>
+      <div class="controls-grid">
+        <label class="field">
+          <span>Evaluation Clock (<code>as_of_utc</code>)</span>
+          <select id="freshness-clock-select">
+            <option value="default" selected>2026-10-27T12:00:00Z (3 Core KPI Tables READY; Legacy Backlog BLOCKED_STALE at 222.0h)</option>
+            <option value="future">2026-10-30T12:00:00Z (+72h Unrefreshed Simulation -> All 4 Tables BLOCKED_STALE)</option>
+          </select>
+        </label>
+      </div>
+      <div id="freshness-tables-view"></div>
+    </div>
+  </section>
+
+  <!-- TAB 4: HITL WORKFLOW STATE MACHINE -->
+  <section class="panel" id="panel-workflow">
+    <div class="card">
+      <h2>Digest-Bound Human-in-the-Loop (HITL) Approval State Machine (<code>HITL-STATE-4</code> / <code>HITL-DRIFT-SHA</code>)</h2>
+      <p class="desc">
+        Step through the transactional SQLite state machine (<code>DRAFT -&gt; PENDING_APPROVAL -&gt; APPROVED / REJECTED</code>) bound to
+        <code>SHA256(normalized_question || sql_snapshot_sha256 || sorted_passage_sha256s || answer_sha256)</code>, and simulate an upstream SQL table refresh that automatically invalidates a prior approval.
+      </p>
+      <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:16px;">
+        <button class="action-btn" id="btn-wf-approve">1. Approve Executive Brief (PENDING_APPROVAL -&gt; APPROVED)</button>
+        <button class="action-btn secondary" id="btn-wf-drift">2. Simulate Upstream SQL Snapshot Refresh (Auto-Invalidate to REJECTED)</button>
+        <button class="action-btn secondary" id="btn-wf-reset">Reset State Machine</button>
+      </div>
+      <div id="workflow-view"></div>
+    </div>
+  </section>
+
+  <footer>
+    <div>Built by <a href="https://github.com/Sushant-Nemade">Sushant Nemade</a> &middot; MIT License &middot; Python / FastAPI / SQLite / TypeScript Reference</div>
+    <div>
+      <a href="https://sushant-nemade.github.io/">Portfolio</a> &middot;
+      <a href="https://github.com/Sushant-Nemade/enterprise-hybrid-data-copilot">Source &amp; Benchmarks</a>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function() {
+  let benchData = null;
+  let bundleData = null;
+  let wfModel = null;
+
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      const panel = document.getElementById('panel-' + btn.dataset.tab);
+      if (panel) panel.classList.add('active');
+    });
+  });
+
+  function escapeHtml(val) {
+    const d = document.createElement('div');
+    d.textContent = String(val ?? '');
+    return d.innerHTML;
+  }
+
+  function renderBenchmark(report) {
+    const order = ['ungoverned_prompt_sql', 'adopt_doc_only_rag', 'build_governed_hybrid_copilot'];
+    const tbody = document.getElementById('benchmark-tbody');
+    tbody.innerHTML = '';
+    order.forEach(key => {
+      const m = report.architectures[key];
+      if (!m) return;
+      const isOurs = key === 'build_governed_hybrid_copilot';
+      const tr = document.createElement('tr');
+      if (isOurs) tr.className = 'highlight-row';
+      tr.innerHTML = `
+        <td>${escapeHtml(m.architecture_label)}</td>
+        <td>${m.SQL_Execution_Accuracy.toFixed(4)}</td>
+        <td><span class="badge ${m.Numerical_Parity_Rate >= 0.99 ? 'ok' : 'warn'}">${m.Numerical_Parity_Rate.toFixed(4)}</span></td>
+        <td><span class="badge ${m.Freshness_Gate_Precision >= 0.99 ? 'ok' : 'danger'}">${m.Freshness_Gate_Precision.toFixed(4)}</span></td>
+        <td>${m.Routing_Modality_Accuracy.toFixed(4)}</td>
+        <td>${m.Mean_Latency_ms.toFixed(2)} ms</td>
+        <td>${m.Estimated_Tokens_Per_Query}</td>
+        <td>$${m.Estimated_Token_Cost_USD_Per_1k_Queries.toFixed(4)}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+
+    const rec = report.build_vs_adopt_recommendation || {};
+    document.getElementById('bva-summary-box').innerHTML = `
+      <p style="font-size:14px; margin:0 0 10px;"><strong>Recommendation (${escapeHtml(rec.decision_framework)}):</strong> ${escapeHtml(rec.summary)}</p>
+      <div class="hash-box">
+        <div><strong>40-Query Dataset SHA-256:    </strong> ${escapeHtml(report.dataset_sha256)}</div>
+        <div><strong>Warehouse Snapshot SHA-256:  </strong> ${escapeHtml(report.database_sha256)}</div>
+        <div><strong>SOP Document Corpus SHA-256: </strong> ${escapeHtml(report.corpus_sha256)}</div>
+      </div>
+    `;
+  }
+
+  function renderRouterScenario() {
+    if (!bundleData || !bundleData.scenarios.length) return;
+    const idx = Number(document.getElementById('router-scenario-select').value || 0);
+    const sc = bundleData.scenarios[idx];
+    const res = sc.response;
+    const nv = res.numerical_verification;
+
+    const sqlSection = res.sql_artifact ? `
+      <div class="sub-card">
+        <div class="sub-header">
+          <span>Parameterized Read-Only SQL Template: <code>${escapeHtml(res.sql_artifact.template_id)}</code></span>
+          <span class="badge ok">AST Validated Read-Only: ${res.sql_artifact.ast_validated_read_only ? 'TRUE' : 'FALSE'}</span>
+        </div>
+        <div class="hash-box" style="margin-bottom:8px;">
+          <div><strong>SQL:</strong> ${escapeHtml(res.sql_artifact.sql_query)}</div>
+          <div><strong>Bound Parameters:</strong> ${escapeHtml(JSON.stringify(res.sql_artifact.parameters))}</div>
+          <div><strong>SQL Snapshot SHA-256:</strong> ${escapeHtml(res.sql_artifact.sql_snapshot_sha256)}</div>
+        </div>
+        <div style="font-family:var(--mono); font-size:12px;"><strong>Returned Rows (${res.sql_artifact.row_count}):</strong> <code>${escapeHtml(JSON.stringify(res.sql_artifact.rows))}</code></div>
+      </div>
+    ` : `<div class="sub-card"><strong>No SQL Execution Executed:</strong> Modality is <code>${escapeHtml(res.route_modality)}</code>.</div>`;
+
+    const passagesHtml = (res.retrieved_passages || []).map(p => `
+      <div class="sub-card">
+        <div class="sub-header">
+          <span>#${p.rank} &middot; ${escapeHtml(p.passage_id)} — ${escapeHtml(p.title)} (${escapeHtml(p.section_heading)})</span>
+          <span class="badge">Hybrid Score: ${p.hybrid_score.toFixed(4)}</span>
+        </div>
+        <div style="font-size:13.5px;">${escapeHtml(p.text)}</div>
+      </div>
+    `).join('');
+
+    const checksHtml = (nv.checks || []).map(c => `
+      <tr>
+        <td><code>${escapeHtml(c.raw_token)}</code></td>
+        <td>${c.normalized_value}</td>
+        <td>${escapeHtml(c.token_kind)}</td>
+        <td>${escapeHtml(c.matched_source || '-')}</td>
+        <td><code>${escapeHtml(c.matched_reference || '-')}</code></td>
+        <td><span class="badge ${c.is_verified ? 'ok' : 'danger'}">${c.is_verified ? 'VERIFIED' : 'UNVERIFIED'}</span></td>
+      </tr>
+    `).join('');
+
+    document.getElementById('router-output').innerHTML = `
+      <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px;">
+        <span class="badge ${res.blocked_by_freshness_gate ? 'danger' : 'ok'}">Route Modality: ${escapeHtml(res.route_modality.toUpperCase())}</span>
+        <span class="badge ${nv.all_numbers_verified ? 'ok' : 'danger'}">Numerical Parity Rate: ${nv.numerical_parity_rate.toFixed(4)} (${nv.verified_tokens}/${nv.total_numeric_tokens} tokens verified)</span>
+      </div>
+      <div class="sub-card" style="background:#f8fafc;">
+        <h3>Synthesized Decision-Support Answer</h3>
+        <p style="font-family:var(--mono); font-size:13px; margin:0 0 8px;">${escapeHtml(res.draft_answer)}</p>
+        <div class="hash-box">Composite Evidence SHA-256: ${escapeHtml(res.composite_evidence_sha256)}</div>
+      </div>
+      <h3>1. Relational SQL Execution Plan &amp; Snapshot</h3>
+      ${sqlSection}
+      <h3>2. Unstructured Operational SOP Passages Retrieved</h3>
+      ${passagesHtml || '<div class="sub-card">None required for pure SQL KPI lookup.</div>'}
+      <h3>3. Deterministic Numerical Grounding Guardrail (<code>NUM-PARITY-100</code>)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Extracted Token</th>
+              <th>Normalized Value</th>
+              <th>Type</th>
+              <th>Matched Source</th>
+              <th>Exact Field / Passage Reference</th>
+              <th>Parity Verdict</th>
+            </tr>
+          </thead>
+          <tbody>${checksHtml}</tbody>
+        </table>
+      </div>
+    `;
+  }
+
+  function renderFreshnessGate() {
+    if (!bundleData) return;
+    const mode = document.getElementById('freshness-clock-select').value;
+    const rep = mode === 'future' ? bundleData.readiness_future_stale : bundleData.readiness_default;
+
+    document.getElementById('freshness-tables-view').innerHTML = `
+      <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px;">
+        <span class="badge">as_of_utc: ${escapeHtml(rep.as_of_utc)}</span>
+        <span class="badge ${rep.can_execute_queries ? 'ok' : 'danger'}">Core KPI Queries Allowed: ${rep.can_execute_queries ? 'TRUE' : 'FALSE (BLOCKED)'}</span>
+        <span class="badge">Database SHA-256: ${escapeHtml(rep.database_sha256.slice(0, 16))}...</span>
+      </div>
+      ${rep.tables.map(t => {
+        const badgeCls = t.status === 'ready' ? 'ok' : (t.status === 'warn_stale' ? 'warn' : 'danger');
+        return `
+          <div class="sub-card">
+            <div class="sub-header">
+              <span>Table: <code>${escapeHtml(t.table_name)}</code> (Rows: ${t.row_count} | Latest Refresh: ${escapeHtml(t.latest_refresh_utc)})</span>
+              <span class="badge ${badgeCls}">${escapeHtml(t.status.toUpperCase())} (${t.staleness_hours.toFixed(1)}h old)</span>
+            </div>
+            <div style="font-family:var(--mono); font-size:12px; color:var(--mute);">
+              Max Observed Column Null Ratio: ${t.max_null_ratio_observed.toFixed(4)} | Schema Valid: ${t.schema_valid ? 'TRUE' : 'FALSE'} | Table SHA-256: <code>${escapeHtml(t.table_sha256.slice(0, 20))}...</code>
+            </div>
+            <div style="margin-top:6px; font-size:13px;"><strong>Gate Verdict:</strong> ${escapeHtml(t.reasons.join(' '))}</div>
+          </div>
+        `;
+      }).join('')}
+    `;
+  }
+
+  function resetWorkflowSim() {
+    if (!bundleData || !bundleData.workflows_seed || !bundleData.workflows_seed.length) return;
+    const seed = JSON.parse(JSON.stringify(bundleData.workflows_seed[0]));
+    wfModel = {
+      workflow_id: seed.workflow_id,
+      question: seed.question,
+      route_modality: seed.route_modality,
+      draft_answer: seed.draft_answer,
+      sql_template_id: seed.sql_template_id,
+      original_sql_sha256: seed.sql_snapshot_sha256,
+      current_sql_sha256: seed.sql_snapshot_sha256,
+      stored_evidence_sha256: seed.composite_evidence_sha256,
+      recomputed_evidence_sha256: seed.composite_evidence_sha256,
+      numerical_parity_rate: seed.numerical_parity_rate,
+      state: seed.state,
+      audit_trail: seed.audit_trail
+    };
+    renderWorkflowSim();
+  }
+
+  function renderWorkflowSim() {
+    if (!wfModel) return;
+    const stCls = wfModel.state === 'APPROVED' ? 'ok' : (wfModel.state === 'REJECTED' ? 'danger' : 'warn');
+    const auditRows = wfModel.audit_trail.map(a => `
+      <tr>
+        <td>${escapeHtml(a.timestamp_utc)}</td>
+        <td><code>${escapeHtml(a.from_state)} -&gt; ${escapeHtml(a.to_state)}</code></td>
+        <td>${escapeHtml(a.actor)}</td>
+        <td>${escapeHtml(a.note)}</td>
+        <td><code>${escapeHtml(a.bound_evidence_sha256.slice(0, 16))}...</code></td>
+      </tr>
+    `).join('');
+
+    document.getElementById('workflow-view').innerHTML = `
+      <div class="sub-card">
+        <div class="sub-header">
+          <span>Workflow ID: <code>${escapeHtml(wfModel.workflow_id)}</code> &middot; Template: <code>${escapeHtml(wfModel.sql_template_id)}</code></span>
+          <span class="badge ${stCls}">State: ${escapeHtml(wfModel.state)}</span>
+        </div>
+        <p style="margin:6px 0; font-size:13.5px;"><strong>Question:</strong> ${escapeHtml(wfModel.question)}</p>
+        <p style="margin:6px 0; font-size:13.5px;"><strong>Draft Summary:</strong> ${escapeHtml(wfModel.draft_answer)}</p>
+        <div class="hash-box">
+          <div><strong>Original SQL Snapshot SHA-256:   </strong> ${escapeHtml(wfModel.original_sql_sha256)}</div>
+          <div><strong>Current Live SQL Snapshot SHA-256:</strong> ${escapeHtml(wfModel.current_sql_sha256)}</div>
+          <hr style="border:0; border-top:1px solid #334155; margin:6px 0;">
+          <div><strong>Stored Composite Evidence SHA-256:    </strong> ${escapeHtml(wfModel.stored_evidence_sha256)}</div>
+          <div><strong>Recomputed Live Evidence SHA-256:     </strong> ${escapeHtml(wfModel.recomputed_evidence_sha256)}</div>
+          <div><strong>Digest Match:                         </strong> ${wfModel.stored_evidence_sha256 === wfModel.recomputed_evidence_sha256 ? 'TRUE (VALID)' : 'FALSE (SQL SNAPSHOT DRIFT DETECTED -> AUTO-REJECTED)'}</div>
+        </div>
+      </div>
+      <h3>Append-Only SQLite State-Transition Audit Trail</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>UTC Timestamp</th>
+              <th>Transition</th>
+              <th>Actor</th>
+              <th>Audit Note</th>
+              <th>Bound Evidence SHA-256</th>
+            </tr>
+          </thead>
+          <tbody>${auditRows}</tbody>
+        </table>
+      </div>
+    `;
+  }
+
+  document.getElementById('btn-wf-approve').addEventListener('click', () => {
+    if (!wfModel || wfModel.state !== 'PENDING_APPROVAL') return;
+    wfModel.state = 'APPROVED';
+    wfModel.audit_trail.push({
+      timestamp_utc: '2026-10-27T12:05:00Z',
+      from_state: 'PENDING_APPROVAL',
+      to_state: 'APPROVED',
+      actor: 'vp-finance@enterprise.local',
+      note: 'Approved CFO freeze brief bound to SQL snapshot and SOP-FIN-202#S1 digest.',
+      bound_evidence_sha256: wfModel.stored_evidence_sha256
+    });
+    renderWorkflowSim();
+  });
+
+  document.getElementById('btn-wf-drift').addEventListener('click', () => {
+    if (!wfModel) return;
+    const prev = wfModel.state;
+    wfModel.current_sql_sha256 = '99b4c018273645519283746500192837465aabbccddeeff00112233445566778';
+    wfModel.recomputed_evidence_sha256 = '3f88a102938475610293847561029384756aabbccddeeff99887766554433221';
+    wfModel.state = 'REJECTED';
+    wfModel.audit_trail.push({
+      timestamp_utc: '2026-10-27T12:15:00Z',
+      from_state: prev,
+      to_state: 'REJECTED',
+      actor: 'system:digest-verifier',
+      note: 'invalidated_by_data_drift: SQL snapshot SHA-256 drifted after zone_financial_kpis refresh.',
+      bound_evidence_sha256: wfModel.recomputed_evidence_sha256
+    });
+    renderWorkflowSim();
+  });
+
+  document.getElementById('btn-wf-reset').addEventListener('click', resetWorkflowSim);
+
+  async function initConsole() {
+    const badge = document.getElementById('runtime-badge');
+    try {
+      const [bResp, cResp] = await Promise.all([
+        fetch('./data/copilot_benchmark.json'),
+        fetch('./data/console_bundle.json')
+      ]);
+      benchData = await bResp.json();
+      bundleData = await cResp.json();
+
+      try {
+        const h = await fetch('./api/health');
+        badge.textContent = h.ok ? 'Runtime: Live FastAPI + SQLite Server' : 'Runtime: Verified Static Bundle (GitHub Pages)';
+      } catch (_e) {
+        badge.textContent = 'Runtime: Verified Static Bundle (GitHub Pages)';
+      }
+
+      renderBenchmark(benchData);
+
+      const sel = document.getElementById('router-scenario-select');
+      sel.innerHTML = bundleData.scenarios.map((s, idx) =>
+        `<option value="${idx}">[${escapeHtml(s.case_id)}] ${escapeHtml(s.label)}</option>`
+      ).join('');
+      sel.addEventListener('change', renderRouterScenario);
+      document.getElementById('freshness-clock-select').addEventListener('change', renderFreshnessGate);
+
+      renderRouterScenario();
+      renderFreshnessGate();
+      resetWorkflowSim();
+    } catch (err) {
+      badge.textContent = 'Error loading console bundle';
+      console.error(err);
+    }
+  }
+
+  initConsole();
+})();
+</script>
+</body>
+</html>

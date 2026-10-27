@@ -1,0 +1,813 @@
+{
+  "dataset_name": "enterprise-hybrid-data-copilot-40query-benchmark",
+  "schema_version": "1.0.0",
+  "default_as_of_utc": "2026-10-27T12:00:00Z",
+  "description": "40 labelled enterprise decision-support queries across 4 slices: 14 sql_only, 10 rag_only, 10 hybrid_multi_source, and 6 blocked_data_quality.",
+  "cases": [
+    {
+      "case_id": "QRY-001",
+      "category": "sql_operational_zone",
+      "question": "What were the units shipped, SLA breach count, and on-time delivery percentage for Zone_DACH_Diagnostics in 2026-Q3?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "sql_only",
+      "expected_sql_template_id": "tpl_zone_ops_by_id",
+      "expected_target_tables": [
+        "zone_operational_kpis"
+      ],
+      "expected_passage_ids": [],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        1850.0,
+        1.0,
+        98.4
+      ],
+      "reference_summary": "In 2026-Q3, Zone_DACH_Diagnostics shipped 1,850 units with 1 SLA breach and 98.4% on-time delivery."
+    },
+    {
+      "case_id": "QRY-002",
+      "category": "sql_operational_zone",
+      "question": "What were the units shipped, SLA breach count, and on-time delivery percentage for Zone_EMEA_Imaging in 2026-Q3?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "sql_only",
+      "expected_sql_template_id": "tpl_zone_ops_by_id",
+      "expected_target_tables": [
+        "zone_operational_kpis"
+      ],
+      "expected_passage_ids": [],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        1420.0,
+        3.0,
+        96.8
+      ],
+      "reference_summary": "In 2026-Q3, Zone_EMEA_Imaging shipped 1,420 units with 3 SLA breaches and 96.8% on-time delivery."
+    },
+    {
+      "case_id": "QRY-003",
+      "category": "sql_operational_zone",
+      "question": "What were the units shipped, SLA breach count, and on-time delivery percentage for Zone_US_East_Robotics in 2026-Q3?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "sql_only",
+      "expected_sql_template_id": "tpl_zone_ops_by_id",
+      "expected_target_tables": [
+        "zone_operational_kpis"
+      ],
+      "expected_passage_ids": [],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        1120.0,
+        9.0,
+        91.2
+      ],
+      "reference_summary": "In 2026-Q3, Zone_US_East_Robotics shipped 1,120 units with 9 SLA breaches and 91.2% on-time delivery."
+    },
+    {
+      "case_id": "QRY-004",
+      "category": "sql_operational_zone",
+      "question": "What were the units shipped, SLA breach count, and on-time delivery percentage for Zone_APAC_LabSystems in 2026-Q3?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "sql_only",
+      "expected_sql_template_id": "tpl_zone_ops_by_id",
+      "expected_target_tables": [
+        "zone_operational_kpis"
+      ],
+      "expected_passage_ids": [],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        1610.0,
+        2.0,
+        97.1
+      ],
+      "reference_summary": "In 2026-Q3, Zone_APAC_LabSystems shipped 1,610 units with 2 SLA breaches and 97.1% on-time delivery."
+    },
+    {
+      "case_id": "QRY-005",
+      "category": "sql_operational_agg",
+      "question": "What is the total units shipped, total SLA breaches, and average on-time delivery percentage across all operational zones in 2026-Q3?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "sql_only",
+      "expected_sql_template_id": "tpl_zone_ops_summary",
+      "expected_target_tables": [
+        "zone_operational_kpis"
+      ],
+      "expected_passage_ids": [],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        6000.0,
+        15.0,
+        95.88
+      ],
+      "reference_summary": "Across all 4 zones in 2026-Q3, total units shipped were 6,000, total SLA breaches were 15, and average on-time delivery was 95.88%."
+    },
+    {
+      "case_id": "QRY-006",
+      "category": "sql_financial_zone",
+      "question": "What was the revenue, actual OPEX, OPEX variance percentage, and gross margin percentage for Zone_DACH_Diagnostics in 2026-Q3?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "sql_only",
+      "expected_sql_template_id": "tpl_zone_fin_by_id",
+      "expected_target_tables": [
+        "zone_financial_kpis"
+      ],
+      "expected_passage_ids": [],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        18900000.0,
+        3980000.0,
+        -2.93,
+        64.2
+      ],
+      "reference_summary": "Zone_DACH_Diagnostics recorded EUR 18,900,000 revenue, EUR 3,980,000 actual OPEX (-2.93% variance), and 64.2% gross margin."
+    },
+    {
+      "case_id": "QRY-007",
+      "category": "sql_financial_zone",
+      "question": "What was the revenue, actual OPEX, OPEX variance percentage, and gross margin percentage for Zone_EMEA_Imaging in 2026-Q3?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "sql_only",
+      "expected_sql_template_id": "tpl_zone_fin_by_id",
+      "expected_target_tables": [
+        "zone_financial_kpis"
+      ],
+      "expected_passage_ids": [],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        14250000.0,
+        3344000.0,
+        4.5,
+        61.5
+      ],
+      "reference_summary": "Zone_EMEA_Imaging recorded EUR 14,250,000 revenue, EUR 3,344,000 actual OPEX (4.5% variance), and 61.5% gross margin."
+    },
+    {
+      "case_id": "QRY-008",
+      "category": "sql_financial_zone",
+      "question": "What was the revenue, actual OPEX, OPEX variance percentage, and gross margin percentage for Zone_US_East_Robotics in 2026-Q3?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "sql_only",
+      "expected_sql_template_id": "tpl_zone_fin_by_id",
+      "expected_target_tables": [
+        "zone_financial_kpis"
+      ],
+      "expected_passage_ids": [],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        11600000.0,
+        3192000.0,
+        14.0,
+        54.8
+      ],
+      "reference_summary": "Zone_US_East_Robotics recorded EUR 11,600,000 revenue, EUR 3,192,000 actual OPEX (14.0% variance), and 54.8% gross margin."
+    },
+    {
+      "case_id": "QRY-009",
+      "category": "sql_financial_zone",
+      "question": "What was the revenue, actual OPEX, OPEX variance percentage, and gross margin percentage for Zone_APAC_LabSystems in 2026-Q3?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "sql_only",
+      "expected_sql_template_id": "tpl_zone_fin_by_id",
+      "expected_target_tables": [
+        "zone_financial_kpis"
+      ],
+      "expected_passage_ids": [],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        15450000.0,
+        3570000.0,
+        2.0,
+        62.0
+      ],
+      "reference_summary": "Zone_APAC_LabSystems recorded EUR 15,450,000 revenue, EUR 3,570,000 actual OPEX (2.0% variance), and 62.0% gross margin."
+    },
+    {
+      "case_id": "QRY-010",
+      "category": "sql_financial_agg",
+      "question": "What is the total revenue, total actual OPEX, and total cloud AI spend in EUR across all zones in 2026-Q3?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "sql_only",
+      "expected_sql_template_id": "tpl_zone_fin_summary",
+      "expected_target_tables": [
+        "zone_financial_kpis"
+      ],
+      "expected_passage_ids": [],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        60200000.0,
+        14086000.0,
+        605000.0
+      ],
+      "reference_summary": "Across all zones in 2026-Q3, total revenue was EUR 60,200,000, total actual OPEX was EUR 14,086,000, and total cloud AI spend was EUR 605,000."
+    },
+    {
+      "case_id": "QRY-011",
+      "category": "sql_vendor_ledger",
+      "question": "What is the annual contract value, uptime percentage, critical incidents, and penalty rebate for vendor VND-LOG-03?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "sql_only",
+      "expected_sql_template_id": "tpl_vendor_by_id",
+      "expected_target_tables": [
+        "vendor_contract_sla_ledger"
+      ],
+      "expected_passage_ids": [],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        540000.0,
+        98.2,
+        4.0,
+        64800.0
+      ],
+      "reference_summary": "Vendor VND-LOG-03 (Atlantic Precision Servo Corp) has an annual contract of EUR 540,000, 98.2% uptime, 4 critical incidents, and EUR 64,800 penalty rebate."
+    },
+    {
+      "case_id": "QRY-012",
+      "category": "sql_vendor_ledger",
+      "question": "What is the annual contract value, uptime percentage, critical incidents, and penalty rebate for vendor VND-MED-02?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "sql_only",
+      "expected_sql_template_id": "tpl_vendor_by_id",
+      "expected_target_tables": [
+        "vendor_contract_sla_ledger"
+      ],
+      "expected_passage_ids": [],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        620000.0,
+        99.45,
+        1.0,
+        31000.0
+      ],
+      "reference_summary": "Vendor VND-MED-02 (EuroOptics Cryo Components AG) has an annual contract of EUR 620,000, 99.45% uptime, 1 critical incident, and EUR 31,000 penalty rebate."
+    },
+    {
+      "case_id": "QRY-013",
+      "category": "sql_vendor_ledger",
+      "question": "What is the total annual vendor contract value and total SLA penalty rebates in EUR across all Tier-1 suppliers?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "sql_only",
+      "expected_sql_template_id": "tpl_vendor_summary",
+      "expected_target_tables": [
+        "vendor_contract_sla_ledger"
+      ],
+      "expected_passage_ids": [],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        2340000.0,
+        95800.0,
+        6.0
+      ],
+      "reference_summary": "Across all 5 Tier-1 suppliers, total annual contract value is EUR 2,340,000, total penalty rebates are EUR 95,800, and total critical incidents are 6."
+    },
+    {
+      "case_id": "QRY-014",
+      "category": "sql_operational_zone",
+      "question": "What are the mean repair hours and automation coverage percentages for all operational zones ordered by repair hours descending?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "sql_only",
+      "expected_sql_template_id": "tpl_zone_ops_all",
+      "expected_target_tables": [
+        "zone_operational_kpis"
+      ],
+      "expected_passage_ids": [],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        7.8,
+        71.4,
+        3.2,
+        88.5
+      ],
+      "reference_summary": "Zone_US_East_Robotics has the highest mean repair hours at 7.8 hours (71.4% automation), while Zone_DACH_Diagnostics has the lowest at 3.2 hours (88.5% automation)."
+    },
+    {
+      "case_id": "QRY-015",
+      "category": "rag_policy_sop",
+      "question": "According to policy OPS-SLA-95, what is the minimum quarterly On-Time Delivery percentage and maximum SLA breach count before CAPA escalation?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "rag_only",
+      "expected_sql_template_id": null,
+      "expected_target_tables": [],
+      "expected_passage_ids": [
+        "SOP-OPS-101#S1"
+      ],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        95.0,
+        5.0
+      ],
+      "reference_summary": "Policy OPS-SLA-95 requires at least 95.0% On-Time Delivery and at most 5 SLA breaches per quarter; violations require a CAPA within 5 business days."
+    },
+    {
+      "case_id": "QRY-016",
+      "category": "rag_policy_sop",
+      "question": "Under control OPS-MTTR-6H, what is the maximum Mean Time To Repair ceiling and minimum workflow automation coverage target?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "rag_only",
+      "expected_sql_template_id": null,
+      "expected_target_tables": [],
+      "expected_passage_ids": [
+        "SOP-OPS-101#S2"
+      ],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        6.0,
+        80.0
+      ],
+      "reference_summary": "Control OPS-MTTR-6H sets a maximum Mean Time To Repair ceiling of 6.0 hours and a minimum automation coverage target of 80.0%."
+    },
+    {
+      "case_id": "QRY-017",
+      "category": "rag_policy_sop",
+      "question": "What OPEX variance percentage threshold triggers a CFO Discretionary Spend Freeze under policy FIN-CAP-8PCT?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "rag_only",
+      "expected_sql_template_id": null,
+      "expected_target_tables": [],
+      "expected_passage_ids": [
+        "SOP-FIN-202#S1"
+      ],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        8.0,
+        3.0
+      ],
+      "reference_summary": "Under FIN-CAP-8PCT, an OPEX variance above 8.0% triggers a mandatory CFO Discretionary Spend Freeze and HITL approval, while 3.0% to 8.0% requires a VP Finance memo."
+    },
+    {
+      "case_id": "QRY-018",
+      "category": "rag_policy_sop",
+      "question": "Under directive FIN-GM-58, what is the minimum quarterly gross margin percentage and the quarterly cloud AI spend cap in EUR?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "rag_only",
+      "expected_sql_template_id": null,
+      "expected_target_tables": [],
+      "expected_passage_ids": [
+        "SOP-FIN-202#S2"
+      ],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        58.0,
+        180000.0
+      ],
+      "reference_summary": "Directive FIN-GM-58 mandates a minimum 58.0% gross margin and caps quarterly cloud AI expenditure at EUR 180,000 per zone."
+    },
+    {
+      "case_id": "QRY-019",
+      "category": "rag_policy_sop",
+      "question": "Under clause VND-SLA-995, what supplier uptime thresholds trigger the 5.0% and 12.0% annual contract penalty rebates?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "rag_only",
+      "expected_sql_template_id": null,
+      "expected_target_tables": [],
+      "expected_passage_ids": [
+        "SOP-VND-303#S1"
+      ],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        99.5,
+        5.0,
+        12.0,
+        3.0
+      ],
+      "reference_summary": "Clause VND-SLA-995 mandates 99.5% uptime; 99.0%-99.49% triggers a 5.0% rebate, while below 99.0% or 3+ critical incidents triggers a 12.0% penalty rebate."
+    },
+    {
+      "case_id": "QRY-020",
+      "category": "rag_policy_sop",
+      "question": "What are the warning and hard blocking staleness hour limits in standard DQA-FRESH-24H and the maximum null ratio in DQA-NULL-5PCT?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "rag_only",
+      "expected_sql_template_id": null,
+      "expected_target_tables": [],
+      "expected_passage_ids": [
+        "SOP-DQA-404#S1",
+        "SOP-DQA-404#S2"
+      ],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        12.0,
+        24.0,
+        48.0,
+        5.0
+      ],
+      "reference_summary": "DQA-FRESH-24H sets a 12.0-hour warning and 24.0-hour blocking ceiling for KPI tables (48.0 hours for backlog partitions), and DQA-NULL-5PCT caps null ratios at 5.0%."
+    },
+    {
+      "case_id": "QRY-021",
+      "category": "rag_policy_sop",
+      "question": "Which SQL keywords are banned by AST policy SQL-AST-RO and what numerical tolerance is enforced by NUM-PARITY-100?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "rag_only",
+      "expected_sql_template_id": null,
+      "expected_target_tables": [],
+      "expected_passage_ids": [
+        "SOP-SQL-505#S1",
+        "SOP-SQL-505#S2"
+      ],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        0.01
+      ],
+      "reference_summary": "Policy SQL-AST-RO blocks INSERT, UPDATE, DELETE, DROP, ALTER, ATTACH, and PRAGMA, while NUM-PARITY-100 verifies every number within a 0.01 tolerance."
+    },
+    {
+      "case_id": "QRY-022",
+      "category": "rag_policy_sop",
+      "question": "How does control HITL-DRIFT-SHA compute the composite evidence SHA-256 digest and what happens when a SQL snapshot changes?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "rag_only",
+      "expected_sql_template_id": null,
+      "expected_target_tables": [],
+      "expected_passage_ids": [
+        "SOP-HITL-606#S1",
+        "SOP-HITL-606#S2"
+      ],
+      "expect_freshness_block": false,
+      "expected_numbers": [],
+      "reference_summary": "Control HITL-DRIFT-SHA binds approvals to SHA256(normalized_question || sql_snapshot_sha256 || sorted_passage_sha256s || answer_sha256) and transitions drifted records to REJECTED."
+    },
+    {
+      "case_id": "QRY-023",
+      "category": "rag_policy_sop",
+      "question": "According to framework ARCH-BVA-01 and target ARCH-COST-20MS, when should we build a governed hybrid copilot and what is the token reduction target?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "rag_only",
+      "expected_sql_template_id": null,
+      "expected_target_tables": [],
+      "expected_passage_ids": [
+        "SOP-AI-707#S1",
+        "SOP-AI-707#S2"
+      ],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        25.0,
+        75.0
+      ],
+      "reference_summary": "Framework ARCH-BVA-01 mandates building a governed hybrid copilot when strict numerical parity, freshness gates, and HITL audit trails are required, targeting <25 ms CPU latency and 75.0% token reduction."
+    },
+    {
+      "case_id": "QRY-024",
+      "category": "rag_policy_sop",
+      "question": "Under GDPR-WH-90D and GDPR-PURGE-14D, what are the audit log retention period and the Article 17 erasure deadline?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "rag_only",
+      "expected_sql_template_id": null,
+      "expected_target_tables": [],
+      "expected_passage_ids": [
+        "SOP-GDPR-808#S1",
+        "SOP-GDPR-808#S2"
+      ],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        90.0,
+        14.0
+      ],
+      "reference_summary": "GDPR-WH-90D mandates 90-day audit retention in eu-central-1, and GDPR-PURGE-14D requires purging revoked personal identifiers within 14 calendar days."
+    },
+    {
+      "case_id": "QRY-025",
+      "category": "hybrid_ops_compliance",
+      "question": "Which operational zone violated the OPS-SLA-95 minimum 95.0% on-time delivery or 5-breach cap in 2026-Q3, and what action is required?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "hybrid_multi_source",
+      "expected_sql_template_id": "tpl_zone_ops_all",
+      "expected_target_tables": [
+        "zone_operational_kpis"
+      ],
+      "expected_passage_ids": [
+        "SOP-OPS-101#S1"
+      ],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        91.2,
+        9.0,
+        95.0,
+        5.0
+      ],
+      "reference_summary": "Zone_US_East_Robotics recorded 91.2% on-time delivery and 9 SLA breaches in 2026-Q3, violating the OPS-SLA-95 thresholds of 95.0% OTD and 5 max breaches and requiring a CAPA within 5 business days."
+    },
+    {
+      "case_id": "QRY-026",
+      "category": "hybrid_ops_compliance",
+      "question": "Compare Zone_US_East_Robotics mean repair hours and automation coverage in 2026-Q3 against the OPS-MTTR-6H operational thresholds.",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "hybrid_multi_source",
+      "expected_sql_template_id": "tpl_zone_ops_by_id",
+      "expected_target_tables": [
+        "zone_operational_kpis"
+      ],
+      "expected_passage_ids": [
+        "SOP-OPS-101#S2"
+      ],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        7.8,
+        71.4,
+        6.0,
+        80.0
+      ],
+      "reference_summary": "Zone_US_East_Robotics recorded 7.8 mean repair hours and 71.4% automation coverage, breaching the OPS-MTTR-6H 6.0-hour MTTR ceiling and 80.0% automation target."
+    },
+    {
+      "case_id": "QRY-027",
+      "category": "hybrid_fin_compliance",
+      "question": "Which zone triggered the FIN-CAP-8PCT CFO Discretionary Spend Freeze in 2026-Q3 based on its OPEX variance percentage, and which zone requires a VP Finance memo?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "hybrid_multi_source",
+      "expected_sql_template_id": "tpl_zone_fin_all",
+      "expected_target_tables": [
+        "zone_financial_kpis"
+      ],
+      "expected_passage_ids": [
+        "SOP-FIN-202#S1"
+      ],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        14.0,
+        4.5,
+        8.0,
+        3.0
+      ],
+      "reference_summary": "Zone_US_East_Robotics recorded a 14.0% OPEX variance (exceeding the 8.0% FIN-CAP-8PCT ceiling, triggering a CFO Spend Freeze), while Zone_EMEA_Imaging recorded 4.5% variance (between 3.0% and 8.0%, requiring a VP Finance memo)."
+    },
+    {
+      "case_id": "QRY-028",
+      "category": "hybrid_fin_compliance",
+      "question": "Evaluate Zone_US_East_Robotics 2026-Q3 gross margin percentage and cloud AI spend against directive FIN-GM-58.",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "hybrid_multi_source",
+      "expected_sql_template_id": "tpl_zone_fin_by_id",
+      "expected_target_tables": [
+        "zone_financial_kpis"
+      ],
+      "expected_passage_ids": [
+        "SOP-FIN-202#S2"
+      ],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        54.8,
+        210000.0,
+        58.0,
+        180000.0
+      ],
+      "reference_summary": "Zone_US_East_Robotics recorded 54.8% gross margin and EUR 210,000 cloud AI spend, violating both the FIN-GM-58 minimum 58.0% gross margin and the EUR 180,000 AI spend cap."
+    },
+    {
+      "case_id": "QRY-029",
+      "category": "hybrid_fin_compliance",
+      "question": "Did Zone_DACH_Diagnostics comply with both FIN-CAP-8PCT OPEX variance rules and FIN-GM-58 gross margin and AI spend limits in 2026-Q3?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "hybrid_multi_source",
+      "expected_sql_template_id": "tpl_zone_fin_by_id",
+      "expected_target_tables": [
+        "zone_financial_kpis"
+      ],
+      "expected_passage_ids": [
+        "SOP-FIN-202#S1",
+        "SOP-FIN-202#S2"
+      ],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        -2.93,
+        64.2,
+        145000.0,
+        8.0,
+        58.0,
+        180000.0
+      ],
+      "reference_summary": "Yes: Zone_DACH_Diagnostics achieved -2.93% OPEX variance (below the 8.0% cap), 64.2% gross margin (above the 58.0% floor), and EUR 145,000 cloud AI spend (below the EUR 180,000 cap)."
+    },
+    {
+      "case_id": "QRY-030",
+      "category": "hybrid_vendor_compliance",
+      "question": "Why was supplier VND-LOG-03 assessed a EUR 64,800 penalty rebate in 2026-Q3 under clause VND-SLA-995?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "hybrid_multi_source",
+      "expected_sql_template_id": "tpl_vendor_by_id",
+      "expected_target_tables": [
+        "vendor_contract_sla_ledger"
+      ],
+      "expected_passage_ids": [
+        "SOP-VND-303#S1"
+      ],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        540000.0,
+        98.2,
+        4.0,
+        64800.0,
+        12.0
+      ],
+      "reference_summary": "Supplier VND-LOG-03 recorded 98.2% uptime (<99.0%) and 4 critical incidents (>=3) on its EUR 540,000 contract, triggering the 12.0% penalty rebate of EUR 64,800 under VND-SLA-995."
+    },
+    {
+      "case_id": "QRY-031",
+      "category": "hybrid_vendor_compliance",
+      "question": "Why was supplier VND-MED-02 assessed a EUR 31,000 penalty rebate in 2026-Q3 under clause VND-SLA-995?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "hybrid_multi_source",
+      "expected_sql_template_id": "tpl_vendor_by_id",
+      "expected_target_tables": [
+        "vendor_contract_sla_ledger"
+      ],
+      "expected_passage_ids": [
+        "SOP-VND-303#S1"
+      ],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        620000.0,
+        99.45,
+        31000.0,
+        5.0
+      ],
+      "reference_summary": "Supplier VND-MED-02 recorded 99.45% uptime (between 99.0% and 99.49%) on its EUR 620,000 annual contract, triggering the 5.0% penalty rebate of EUR 31,000 under VND-SLA-995."
+    },
+    {
+      "case_id": "QRY-032",
+      "category": "hybrid_vendor_compliance",
+      "question": "Which Tier-1 suppliers exceed the VND-BOARD-500K annual contract threshold of EUR 500,000 and require dual VP Procurement and CISO resilience sign-off?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "hybrid_multi_source",
+      "expected_sql_template_id": "tpl_vendor_all",
+      "expected_target_tables": [
+        "vendor_contract_sla_ledger"
+      ],
+      "expected_passage_ids": [
+        "SOP-VND-303#S2"
+      ],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        620000.0,
+        540000.0,
+        500000.0
+      ],
+      "reference_summary": "VND-MED-02 (EUR 620,000) and VND-LOG-03 (EUR 540,000) exceed the EUR 500,000 threshold under VND-BOARD-500K and require dual VP Procurement and CISO sign-off."
+    },
+    {
+      "case_id": "QRY-033",
+      "category": "hybrid_ops_compliance",
+      "question": "Did Zone_DACH_Diagnostics and Zone_APAC_LabSystems both meet the OPS-MTTR-6H repair time and 80.0% automation coverage targets in 2026-Q3?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "hybrid_multi_source",
+      "expected_sql_template_id": "tpl_zone_ops_all",
+      "expected_target_tables": [
+        "zone_operational_kpis"
+      ],
+      "expected_passage_ids": [
+        "SOP-OPS-101#S2"
+      ],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        3.2,
+        88.5,
+        3.9,
+        84.2,
+        6.0,
+        80.0
+      ],
+      "reference_summary": "Yes: Zone_DACH_Diagnostics (3.2 repair hours, 88.5% automation) and Zone_APAC_LabSystems (3.9 repair hours, 84.2% automation) both met the OPS-MTTR-6H <=6.0h and >=80.0% targets."
+    },
+    {
+      "case_id": "QRY-034",
+      "category": "hybrid_fin_compliance",
+      "question": "How does Zone_EMEA_Imaging 2026-Q3 OPEX variance and cloud AI spend compare against FIN-CAP-8PCT and FIN-GM-58?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "hybrid_multi_source",
+      "expected_sql_template_id": "tpl_zone_fin_by_id",
+      "expected_target_tables": [
+        "zone_financial_kpis"
+      ],
+      "expected_passage_ids": [
+        "SOP-FIN-202#S1",
+        "SOP-FIN-202#S2"
+      ],
+      "expect_freshness_block": false,
+      "expected_numbers": [
+        4.5,
+        118000.0,
+        61.5,
+        8.0,
+        180000.0
+      ],
+      "reference_summary": "Zone_EMEA_Imaging had a 4.5% OPEX variance (requiring a VP Finance memo under FIN-CAP-8PCT), while its 61.5% gross margin and EUR 118,000 AI spend complied with FIN-GM-58."
+    },
+    {
+      "case_id": "QRY-035",
+      "category": "freshness_blocked_backlog",
+      "question": "How many backordered SKUs and blocked orders in EUR are in legacy_supply_backlog_partition for Zone_US_East_Robotics?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "blocked_data_quality",
+      "expected_sql_template_id": null,
+      "expected_target_tables": [
+        "legacy_supply_backlog_partition"
+      ],
+      "expected_passage_ids": [
+        "SOP-DQA-404#S1"
+      ],
+      "expect_freshness_block": true,
+      "expected_numbers": [
+        222.0,
+        48.0
+      ],
+      "reference_summary": "BLOCKED BY DATA QUALITY GATE: Table legacy_supply_backlog_partition is 222.0 hours old (exceeding max_staleness_hours=48.0 under DQA-FRESH-24H)."
+    },
+    {
+      "case_id": "QRY-036",
+      "category": "freshness_blocked_backlog",
+      "question": "What is the total blocked_orders_eur across all zones in the legacy_supply_backlog_partition table?",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "blocked_data_quality",
+      "expected_sql_template_id": null,
+      "expected_target_tables": [
+        "legacy_supply_backlog_partition"
+      ],
+      "expected_passage_ids": [
+        "SOP-DQA-404#S1"
+      ],
+      "expect_freshness_block": true,
+      "expected_numbers": [
+        222.0,
+        48.0
+      ],
+      "reference_summary": "BLOCKED BY DATA QUALITY GATE: Table legacy_supply_backlog_partition is 222.0 hours old (exceeding max_staleness_hours=48.0 under DQA-FRESH-24H)."
+    },
+    {
+      "case_id": "QRY-037",
+      "category": "freshness_blocked_backlog",
+      "question": "Compare backordered_skus for Zone_DACH_Diagnostics and Zone_EMEA_Imaging from legacy_supply_backlog_partition.",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "blocked_data_quality",
+      "expected_sql_template_id": null,
+      "expected_target_tables": [
+        "legacy_supply_backlog_partition"
+      ],
+      "expected_passage_ids": [
+        "SOP-DQA-404#S1"
+      ],
+      "expect_freshness_block": true,
+      "expected_numbers": [
+        222.0,
+        48.0
+      ],
+      "reference_summary": "BLOCKED BY DATA QUALITY GATE: Table legacy_supply_backlog_partition is 222.0 hours old (exceeding max_staleness_hours=48.0 under DQA-FRESH-24H)."
+    },
+    {
+      "case_id": "QRY-038",
+      "category": "freshness_blocked_backlog",
+      "question": "List all partitions in legacy_supply_backlog_partition where blocked_orders_eur exceeds EUR 500,000.",
+      "as_of_utc": "2026-10-27T12:00:00Z",
+      "expected_modality": "blocked_data_quality",
+      "expected_sql_template_id": null,
+      "expected_target_tables": [
+        "legacy_supply_backlog_partition"
+      ],
+      "expected_passage_ids": [
+        "SOP-DQA-404#S1"
+      ],
+      "expect_freshness_block": true,
+      "expected_numbers": [
+        222.0,
+        48.0
+      ],
+      "reference_summary": "BLOCKED BY DATA QUALITY GATE: Table legacy_supply_backlog_partition is 222.0 hours old (exceeding max_staleness_hours=48.0 under DQA-FRESH-24H)."
+    },
+    {
+      "case_id": "QRY-039",
+      "category": "freshness_blocked_future_clock",
+      "question": "As of 2026-10-30, what were the units shipped for Zone_DACH_Diagnostics if zone_operational_kpis has not refreshed since 2026-10-27?",
+      "as_of_utc": "2026-10-30T12:00:00Z",
+      "expected_modality": "blocked_data_quality",
+      "expected_sql_template_id": null,
+      "expected_target_tables": [
+        "zone_operational_kpis"
+      ],
+      "expected_passage_ids": [
+        "SOP-DQA-404#S1"
+      ],
+      "expect_freshness_block": true,
+      "expected_numbers": [
+        75.0,
+        24.0
+      ],
+      "reference_summary": "BLOCKED BY DATA QUALITY GATE: As of 2026-10-30T12:00:00Z, zone_operational_kpis is 75.0 hours old, exceeding the 24.0-hour DQA-FRESH-24H ceiling."
+    },
+    {
+      "case_id": "QRY-040",
+      "category": "freshness_blocked_future_clock",
+      "question": "As of 2026-10-30, what was the actual OPEX for Zone_US_East_Robotics if zone_financial_kpis has not refreshed since 2026-10-27?",
+      "as_of_utc": "2026-10-30T12:00:00Z",
+      "expected_modality": "blocked_data_quality",
+      "expected_sql_template_id": null,
+      "expected_target_tables": [
+        "zone_financial_kpis"
+      ],
+      "expected_passage_ids": [
+        "SOP-DQA-404#S1"
+      ],
+      "expect_freshness_block": true,
+      "expected_numbers": [
+        74.5,
+        24.0
+      ],
+      "reference_summary": "BLOCKED BY DATA QUALITY GATE: As of 2026-10-30T12:00:00Z, zone_financial_kpis is 74.5 hours old, exceeding the 24.0-hour DQA-FRESH-24H ceiling."
+    }
+  ]
+}

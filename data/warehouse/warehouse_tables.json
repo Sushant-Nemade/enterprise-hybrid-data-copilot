@@ -1,0 +1,254 @@
+{
+  "contracts": [
+    {
+      "table_name": "zone_operational_kpis",
+      "description": "Quarterly operational throughput, SLA breaches, OTD %, MTTR, and automation coverage by zone.",
+      "required_columns": [
+        "zone_id",
+        "fiscal_quarter",
+        "units_shipped",
+        "sla_breach_count",
+        "on_time_delivery_pct",
+        "mean_repair_hours",
+        "automation_coverage_pct",
+        "refreshed_at_utc"
+      ],
+      "timestamp_column": "refreshed_at_utc",
+      "min_rows": 4,
+      "max_rows": 100,
+      "max_null_ratio": 0.05,
+      "warn_staleness_hours": 12.0,
+      "max_staleness_hours": 24.0
+    },
+    {
+      "table_name": "zone_financial_kpis",
+      "description": "Quarterly revenue, OPEX budget vs actual, variance %, gross margin %, and AI spend by zone.",
+      "required_columns": [
+        "zone_id",
+        "fiscal_quarter",
+        "revenue_eur",
+        "opex_budget_eur",
+        "actual_opex_eur",
+        "opex_variance_pct",
+        "gross_margin_pct",
+        "cloud_ai_spend_eur",
+        "refreshed_at_utc"
+      ],
+      "timestamp_column": "refreshed_at_utc",
+      "min_rows": 4,
+      "max_rows": 100,
+      "max_null_ratio": 0.05,
+      "warn_staleness_hours": 12.0,
+      "max_staleness_hours": 24.0
+    },
+    {
+      "table_name": "vendor_contract_sla_ledger",
+      "description": "Tier-1 vendor contract values, uptime %, critical incidents, and SLA penalty rebates.",
+      "required_columns": [
+        "vendor_id",
+        "vendor_name",
+        "zone_id",
+        "annual_contract_eur",
+        "uptime_pct",
+        "critical_incidents_q3",
+        "penalty_rebate_eur",
+        "refreshed_at_utc"
+      ],
+      "timestamp_column": "refreshed_at_utc",
+      "min_rows": 5,
+      "max_rows": 200,
+      "max_null_ratio": 0.05,
+      "warn_staleness_hours": 12.0,
+      "max_staleness_hours": 24.0
+    },
+    {
+      "table_name": "legacy_supply_backlog_partition",
+      "description": "Legacy warehouse component backlog feed (intentionally stale partition for gate testing).",
+      "required_columns": [
+        "partition_id",
+        "zone_id",
+        "backordered_skus",
+        "blocked_orders_eur",
+        "refreshed_at_utc"
+      ],
+      "timestamp_column": "refreshed_at_utc",
+      "min_rows": 4,
+      "max_rows": 100,
+      "max_null_ratio": 0.05,
+      "warn_staleness_hours": 24.0,
+      "max_staleness_hours": 48.0
+    }
+  ],
+  "tables": {
+    "zone_operational_kpis": [
+      {
+        "zone_id": "Zone_DACH_Diagnostics",
+        "fiscal_quarter": "2026-Q3",
+        "units_shipped": 1850,
+        "sla_breach_count": 1,
+        "on_time_delivery_pct": 98.4,
+        "mean_repair_hours": 3.2,
+        "automation_coverage_pct": 88.5,
+        "refreshed_at_utc": "2026-10-27T09:00:00Z"
+      },
+      {
+        "zone_id": "Zone_EMEA_Imaging",
+        "fiscal_quarter": "2026-Q3",
+        "units_shipped": 1420,
+        "sla_breach_count": 3,
+        "on_time_delivery_pct": 96.8,
+        "mean_repair_hours": 4.5,
+        "automation_coverage_pct": 82.0,
+        "refreshed_at_utc": "2026-10-27T09:00:00Z"
+      },
+      {
+        "zone_id": "Zone_US_East_Robotics",
+        "fiscal_quarter": "2026-Q3",
+        "units_shipped": 1120,
+        "sla_breach_count": 9,
+        "on_time_delivery_pct": 91.2,
+        "mean_repair_hours": 7.8,
+        "automation_coverage_pct": 71.4,
+        "refreshed_at_utc": "2026-10-27T09:00:00Z"
+      },
+      {
+        "zone_id": "Zone_APAC_LabSystems",
+        "fiscal_quarter": "2026-Q3",
+        "units_shipped": 1610,
+        "sla_breach_count": 2,
+        "on_time_delivery_pct": 97.1,
+        "mean_repair_hours": 3.9,
+        "automation_coverage_pct": 84.2,
+        "refreshed_at_utc": "2026-10-27T09:00:00Z"
+      }
+    ],
+    "zone_financial_kpis": [
+      {
+        "zone_id": "Zone_DACH_Diagnostics",
+        "fiscal_quarter": "2026-Q3",
+        "revenue_eur": 18900000.0,
+        "opex_budget_eur": 4100000.0,
+        "actual_opex_eur": 3980000.0,
+        "opex_variance_pct": -2.93,
+        "gross_margin_pct": 64.2,
+        "cloud_ai_spend_eur": 145000.0,
+        "refreshed_at_utc": "2026-10-27T09:30:00Z"
+      },
+      {
+        "zone_id": "Zone_EMEA_Imaging",
+        "fiscal_quarter": "2026-Q3",
+        "revenue_eur": 14250000.0,
+        "opex_budget_eur": 3200000.0,
+        "actual_opex_eur": 3344000.0,
+        "opex_variance_pct": 4.5,
+        "gross_margin_pct": 61.5,
+        "cloud_ai_spend_eur": 118000.0,
+        "refreshed_at_utc": "2026-10-27T09:30:00Z"
+      },
+      {
+        "zone_id": "Zone_US_East_Robotics",
+        "fiscal_quarter": "2026-Q3",
+        "revenue_eur": 11600000.0,
+        "opex_budget_eur": 2800000.0,
+        "actual_opex_eur": 3192000.0,
+        "opex_variance_pct": 14.0,
+        "gross_margin_pct": 54.8,
+        "cloud_ai_spend_eur": 210000.0,
+        "refreshed_at_utc": "2026-10-27T09:30:00Z"
+      },
+      {
+        "zone_id": "Zone_APAC_LabSystems",
+        "fiscal_quarter": "2026-Q3",
+        "revenue_eur": 15450000.0,
+        "opex_budget_eur": 3500000.0,
+        "actual_opex_eur": 3570000.0,
+        "opex_variance_pct": 2.0,
+        "gross_margin_pct": 62.0,
+        "cloud_ai_spend_eur": 132000.0,
+        "refreshed_at_utc": "2026-10-27T09:30:00Z"
+      }
+    ],
+    "vendor_contract_sla_ledger": [
+      {
+        "vendor_id": "VND-CLOUD-01",
+        "vendor_name": "SovereignCloud Frankfurt GmbH",
+        "zone_id": "Zone_DACH_Diagnostics",
+        "annual_contract_eur": 480000.0,
+        "uptime_pct": 99.96,
+        "critical_incidents_q3": 0,
+        "penalty_rebate_eur": 0.0,
+        "refreshed_at_utc": "2026-10-27T08:00:00Z"
+      },
+      {
+        "vendor_id": "VND-MED-02",
+        "vendor_name": "EuroOptics Cryo Components AG",
+        "zone_id": "Zone_EMEA_Imaging",
+        "annual_contract_eur": 620000.0,
+        "uptime_pct": 99.45,
+        "critical_incidents_q3": 1,
+        "penalty_rebate_eur": 31000.0,
+        "refreshed_at_utc": "2026-10-27T08:00:00Z"
+      },
+      {
+        "vendor_id": "VND-LOG-03",
+        "vendor_name": "Atlantic Precision Servo Corp",
+        "zone_id": "Zone_US_East_Robotics",
+        "annual_contract_eur": 540000.0,
+        "uptime_pct": 98.2,
+        "critical_incidents_q3": 4,
+        "penalty_rebate_eur": 64800.0,
+        "refreshed_at_utc": "2026-10-27T08:00:00Z"
+      },
+      {
+        "vendor_id": "VND-SEC-04",
+        "vendor_name": "Nordic Telemetry Guard AB",
+        "zone_id": "Zone_DACH_Diagnostics",
+        "annual_contract_eur": 290000.0,
+        "uptime_pct": 99.92,
+        "critical_incidents_q3": 0,
+        "penalty_rebate_eur": 0.0,
+        "refreshed_at_utc": "2026-10-27T08:00:00Z"
+      },
+      {
+        "vendor_id": "VND-DATA-05",
+        "vendor_name": "Pacific Lab Automation Pte Ltd",
+        "zone_id": "Zone_APAC_LabSystems",
+        "annual_contract_eur": 410000.0,
+        "uptime_pct": 99.6,
+        "critical_incidents_q3": 1,
+        "penalty_rebate_eur": 0.0,
+        "refreshed_at_utc": "2026-10-27T08:00:00Z"
+      }
+    ],
+    "legacy_supply_backlog_partition": [
+      {
+        "partition_id": "PART-2026-W41-DACH",
+        "zone_id": "Zone_DACH_Diagnostics",
+        "backordered_skus": 14,
+        "blocked_orders_eur": 320000.0,
+        "refreshed_at_utc": "2026-10-18T06:00:00Z"
+      },
+      {
+        "partition_id": "PART-2026-W41-EMEA",
+        "zone_id": "Zone_EMEA_Imaging",
+        "backordered_skus": 27,
+        "blocked_orders_eur": 610000.0,
+        "refreshed_at_utc": "2026-10-18T06:00:00Z"
+      },
+      {
+        "partition_id": "PART-2026-W41-USEAST",
+        "zone_id": "Zone_US_East_Robotics",
+        "backordered_skus": 53,
+        "blocked_orders_eur": 1240000.0,
+        "refreshed_at_utc": "2026-10-18T06:00:00Z"
+      },
+      {
+        "partition_id": "PART-2026-W41-APAC",
+        "zone_id": "Zone_APAC_LabSystems",
+        "backordered_skus": 19,
+        "blocked_orders_eur": 440000.0,
+        "refreshed_at_utc": "2026-10-18T06:00:00Z"
+      }
+    ]
+  }
+}

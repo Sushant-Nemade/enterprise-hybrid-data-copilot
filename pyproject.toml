@@ -1,0 +1,60 @@
+[project]
+name = "enterprise-hybrid-data-copilot"
+version = "0.1.0"
+description = "Principal-level Python/FastAPI and TypeScript reference system bridging structured relational KPIs (SQLite) and unstructured operational documents with automated data-freshness gates, AST-validated read-only semantic SQL, deterministic numerical verification, and SHA-256 digest-bound HITL workflow approvals"
+requires-python = ">=3.11"
+readme = "README.md"
+license = "MIT"
+authors = [
+    { name = "Sushant Nemade" }
+]
+dependencies = [
+    "numpy>=2.4,<3",
+    "pydantic>=2.14,<3",
+    "fastapi>=0.143.3,<0.144",
+    "uvicorn>=0.54,<0.55",
+]
+
+[project.scripts]
+copilot-eval = "copilot.evaluate:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=9,<10",
+    "ruff>=0.15,<1",
+    "mypy>=1.19,<2",
+    "build>=1.4,<2",
+    "pip-audit>=2.10,<3",
+    "twine>=6,<7",
+    "httpx2>=2.15.1",
+]
+
+[build-system]
+requires = ["setuptools>=82", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools]
+include-package-data = false
+
+[tool.setuptools.package-data]
+copilot = ["py.typed", "site/*", "site/data/*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 115
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["src/copilot"]
